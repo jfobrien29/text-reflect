@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
 // @ts-ignore
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 import styles from '../styles/Home.module.css';
 
@@ -22,17 +21,15 @@ export default function Home() {
         </div>
         <div className={styles.content}>
           <div className={styles.imageContainer}>
-            <Image src="/../public/me.png" width="384px" height="512px"></Image>
+            <Image
+              className={styles.mainImage}
+              src="/../public/me.png"
+              width="384px"
+              height="512px"
+            ></Image>
           </div>
+          <div className={styles.spacer}></div>
           <div className={styles.bioContainer}>
-            <p>
-              This is some information about myself. This is some information
-              about myself. This is some information about myself. This is some
-              information about myself. This is some information about myself.
-              This is some information about myself. This is some information
-              about myself. This is some information about myself. This is some
-              information about myself. This is some information about myself.
-            </p>
             <p>
               This is some information about myself. This is some information
               about myself. This is some information about myself. This is some

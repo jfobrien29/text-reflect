@@ -8,7 +8,7 @@
 }
 
 .main {
-  padding: 5rem 0;
+  padding: 2rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -33,7 +33,7 @@
   text-decoration: underline;
 }
 
-.title a {
+/* .title a {
   color: #0070f3;
   text-decoration: none;
 }
@@ -42,7 +42,7 @@
 .title a:focus,
 .title a:active {
   text-decoration: underline;
-}
+} */
 
 .title {
   margin: 0;
@@ -124,4 +124,29 @@
     width: 100%;
     flex-direction: column;
   }
+}
+
+.content {
+  max-width: 800px;
+  margin: auto 0;
+  display: flex;
+}
+
+.imageContainer {
+  width: 49%;
+  height: 100%;
+  margin: auto;
+  padding: 5px;
+}
+
+.mainImage {
+  border-radius: 4px;
+}
+
+.spacer {
+  width: 2%;
+}
+
+.bioContainer {
+  width: 49%;
 }
