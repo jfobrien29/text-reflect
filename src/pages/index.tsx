@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Image from 'next/image';
-// @ts-ignore
 
 import styles from '../styles/Home.module.css';
 
@@ -16,16 +15,18 @@ export default function Home() {
         <h1 className={styles.title}>Jack O'Brien</h1>
         <div>
           <h2 className={styles.description}>
-            Software Engineer | Other Thing | Other
+            Co-Founder | Software Engineer 
           </h2>
         </div>
         <div className={styles.content}>
           <div className={styles.imageContainer}>
             <Image
               className={styles.mainImage}
-              src="/../public/me.png"
+              src="/../public/me2.png"
               width="384px"
               height="512px"
+              loading="eager"
+              
             ></Image>
           </div>
           <div className={styles.spacer}></div>
