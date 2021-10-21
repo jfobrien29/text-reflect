@@ -6,7 +6,11 @@ module.exports = {
       ...theme('colors'),
       'bgTheme': '#F80',
     }),
-    extend: {},
+    extend: {
+      colors: {
+        'orange': '#F80',
+      },
+    },
   },
   variants: {
     extend: {},
