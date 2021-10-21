@@ -1,15 +1,11 @@
 import Head from 'next/head';
 
+import BaseLayout from '@/containers/BaseLayout';
 import styles from '../styles/Home.module.css';
 
-const BaseLayout: React.FC<any> = ({ title = "Jack O'Brien", children }) => {
+const MainLayout: React.FC<any> = ({ title = '', children }) => {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>{title}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <BaseLayout>
       <main className={styles.main}>{children}</main>
 
       <footer className={styles.footer}>
@@ -20,7 +16,7 @@ const BaseLayout: React.FC<any> = ({ title = "Jack O'Brien", children }) => {
           </a>
         </p>
       </footer>
-    </div>
+    </BaseLayout>
   );
 };
 

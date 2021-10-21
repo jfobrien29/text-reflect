@@ -1,53 +1,38 @@
-import BaseLayout from '@/containers/BaseLayout';
-import Image from 'next/image';
+import React from 'react';
+import Link from 'next/link';
 
-import styles from '../styles/Home.module.css';
-
-export default function Home() {
+const Card: React.FC<any> = ({ title, text }) => {
   return (
-    <BaseLayout>
-      <h1 className={styles.title}>Jack O'Brien</h1>
-      <div>
-        <h2 className={styles.description}>Co-Founder | Software Engineer</h2>
-      </div>
-      <div className={styles.content}>
-        <div className={styles.imageContainer}>
-          <Image
-            className={styles.mainImage}
-            src="/public/me2.png"
-            width="384px"
-            height="512px"
-            loading="eager"
-          ></Image>
-        </div>
-        <div className={styles.spacer}></div>
-        <div className={styles.bioContainer}>
-          <p>
-            This is some information about myself. This is some information
-            about myself. This is some information about myself. This is some
-            information about myself. This is some information about myself.
-            This is some information about myself. This is some information
-            about myself. This is some information about myself. This is some
-            information about myself. This is some information about myself.
-          </p>
-          <p>
-            This is some information about myself. This is some information
-            about myself. This is some information about myself. This is some
-            information about myself. This is some information about myself.
-            This is some information about myself. This is some information
-            about myself. This is some information about myself. This is some
-            information about myself. This is some information about myself.
-          </p>
-          <p>
-            This is some information about myself. This is some information
-            about myself. This is some information about myself. This is some
-            information about myself. This is some information about myself.
-            This is some information about myself. This is some information
-            about myself. This is some information about myself. This is some
-            information about myself. This is some information about myself.
-          </p>
+    <div className="w-56 h-44 p-2 border-white border rounded-md">
+      <h2 className="text-white font-semibold text-lg">{title}</h2>
+      <p className="text-white text-sm">{text}</p>
+    </div>
+  );
+};
+
+export default function Landing() {
+  return (
+    <div className="w-full h-screen bg-yellow-700">
+      {/** Header */}
+      <div className="w-full flex justify-center align-middle">
+        <div className="flex flex-col">
+          <h1 className="text-white mt-10 text-2xl font-bold leading-tight">
+            <Link href="/"> Jack O'Brien</Link>
+          </h1>
         </div>
       </div>
-    </BaseLayout>
+      {/** Logos */}
+      <div className="w-full flex justify-center gap-4 mt-10">
+        <h1 className="text-white">Twitter</h1>
+        <h1 className="text-white">Github</h1>
+        <h1 className="text-white">LinkedIn</h1>
+      </div>
+      {/** Cards */}
+      <div className="w-full flex justify-center gap-4 mt-16">
+        <Card title="OnePager" text="example text" />
+        <Card title="Google" text="example text" />
+        <Card title="IBM" text="example text" />
+      </div>
+    </div>
   );
 }
