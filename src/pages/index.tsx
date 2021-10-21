@@ -13,7 +13,7 @@ const Card: React.FC<any> = ({ title, text }) => {
 
 export default function Landing() {
   return (
-    <div className="w-full min-h-screen bg-yellow-600">
+    <div className="w-full min-h-screen bg-bgTheme">
       {/** Header */}
       <div className="w-full flex justify-center align-middle">
         <div className="flex flex-col">
