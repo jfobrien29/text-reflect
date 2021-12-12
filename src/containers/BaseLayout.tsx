@@ -1,25 +1,16 @@
-import Head from 'next/head';
+import React from 'react';
 
-import styles from '../styles/Home.module.css';
+import Footer from '@/components/Footer';
+import BaseHeader from './BaseHeaders';
 
-const BaseLayout: React.FC<any> = ({ title = "Jack O'Brien", children }) => {
+const BaseLayout: React.FC<any> = ({ children }) => {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>{title}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div className="w-full min-h-screen">
+      <BaseHeader />
 
-      <main className={styles.main}>{children}</main>
+      <main>{children}</main>
 
-      <footer className={styles.footer}>
-        <p>Reach out!</p>
-        <p>
-          <a href="https://www.planetary.org/worlds/pale-blue-dot">
-            Pale blue dot.
-          </a>
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 };

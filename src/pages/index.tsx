@@ -1,86 +1,15 @@
-import Link from 'next/link';
+import Landing from '@/components/Landing';
+import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
-const Card: React.FC<any> = ({ title, text }) => {
-  return (
-    <div className="group w-3/4 md:w-56 h-64 p-3 border-white border rounded-sm hover:bg-white hover:shadow-lg transform duration-500 ease-in-out hover:-translate-y-1">
-      <h2 className="text-white font-semibold text-lg group-hover:text-orange">
-        {title}
-      </h2>
-      <p className="text-white text-sm group-hover:text-orange">{text}</p>
-    </div>
-  );
+const LandingPage: NextPage<any> = () => {
+  return <Landing />;
 };
 
-export default function Landing() {
-  return (
-    <div className="w-full min-h-screen bg-orange">
-      {/** Header */}
-      <div className="w-full flex justify-center align-middle">
-        <div className="flex flex-col">
-          <h1 className="text-white mt-16 text-2xl font-bold leading-tight">
-            <Link href="/"> Jack O'Brien</Link>
-          </h1>
-        </div>
-      </div>
+export const getStaticProps: GetStaticProps = async () => {
+  return {
+    props: { test: 'test' },
+  };
+};
 
-      {/** Logos */}
-      <div className="w-full flex justify-center gap-4 mt-10 text-lg">
-        <div className="text-white">
-          <Link href="https://twitter.com/thejackobrien" passHref>
-            <a>
-              <FaTwitter type="link" className="cursor-pointer" />
-            </a>
-          </Link>
-        </div>
-        <div className="text-white">
-          <Link href="https://github.com/jfobrien29" passHref>
-            <a>
-              <FaGithub type="link" className="cursor-pointer" />
-            </a>
-          </Link>
-        </div>
-        <div className="text-white">
-          <Link
-            href="https://www.linkedin.com/in/jack-o-brien-53bbaa105/"
-            passHref
-          >
-            <a>
-              <FaLinkedin type="link" className="cursor-pointer" />
-            </a>
-          </Link>
-        </div>
-      </div>
-
-      {/** Cards */}
-      <div className="w-full flex flex-col md:flex-row justify-center items-center gap-8 mt-8 md:mt-16">
-        <Card
-          title="OnePager"
-          text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it"
-        />
-        <Card
-          title="Google"
-          text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it"
-        />
-        <Card
-          title="IBM"
-          text="Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it"
-        />
-      </div>
-
-      {/** Footer */}
-      <div className="w-full flex flex-col justify-center items-center gap-2 mt-16 mb-4">
-        <h2 className="text-white text-xs">Jack O'Brien 2021</h2>
-        <p className="text-white text-xs">
-          <a>jackob.eth</a>
-        </p>
-        <p className="text-white text-xs">
-          <Link href="/listening">
-            <a>Now Playing</a>
-          </Link>
-        </p>
-      </div>
-    </div>
-  );
-}
+export default LandingPage;
