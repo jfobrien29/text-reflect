@@ -9,3 +9,7 @@ html {
 .max-w-1030 {
   max-width: 1030px;
 }
+
+.font-readex-pro {
+  font-family: 'Readex Pro', sans-serif;
+}

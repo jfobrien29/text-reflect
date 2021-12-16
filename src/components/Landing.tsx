@@ -19,17 +19,20 @@ const Landing: React.FC<any> = () => {
       <div className="bg-orange">
         {/** Header */}
         <div className="flex flex-col">
-          <h1 className=" text-white text-3xl font-semibold max-w-2xl">
-            I'm a Co-Founder of{' '}
+          <h1 className=" text-white text-2xl font-semibold max-w-2xl">
+            I'm Co-Founder & CTO of{' '}
             <a className="underline" href="https://onepager.vc">
               OnePager
             </a>
             , interested in programming, startups, education, biotech, and
-            climate change solutions. At my core, I'm a builder.
+            climate change solutions. At my core, I like to build things.
           </h1>
 
+          {/** divider */}
+          <div className="mt-8 w-full h-px bg-white"></div>
+
           <h2 className="mt-8 text-lg">
-            For my latest thoughts,{' '}
+            For my latest,{' '}
             <a className="underline" href={TWITTER_LINK}>
               follow me on Twitter.
             </a>

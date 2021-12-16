@@ -8,7 +8,7 @@ const BaseLayout: React.FC<any> = ({ children }) => {
   return (
     <>
       <BaseHeader />
-      <div className="w-full min-h-screen flex flex-col">
+      <div className="w-full min-h-screen flex flex-col font-readex-pro">
         <Header />
 
         <main className="w-full flex justify-center align-middle text-white">

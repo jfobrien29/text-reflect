@@ -33,6 +33,11 @@ const BaseHeader: React.FC<any> = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@thejackobrien" />
+
+      <style>
+        @import
+        url('https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap');
+      </style>
     </Head>
   );
 };
