@@ -11,7 +11,7 @@ const BaseLayout: React.FC<any> = ({ children }) => {
       <div className="w-full min-h-screen flex flex-col font-readex-pro">
         <Header />
 
-        <main className="w-full flex justify-center align-middle text-white">
+        <main className="w-full flex justify-center align-middle text-white px-2">
           {children}
         </main>
 
