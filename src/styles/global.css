@@ -5,3 +5,7 @@
 html {
   @apply bg-orange;
 }
+
+.max-w-1030 {
+  max-width: 1030px;
+}
