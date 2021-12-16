@@ -1,9 +1,6 @@
-import BaseLayout from '@/containers/BaseLayout';
+import React from 'react';
+import Blog from '@/components/Blog';
 
-export default function Blog() {
-  return (
-    <BaseLayout>
-      <div>Blog (coming soon)</div>
-    </BaseLayout>
-  );
+export default function BlogPage() {
+  return <Blog />;
 }

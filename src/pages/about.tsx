@@ -1,9 +1,6 @@
-import BaseLayout from '@/containers/BaseLayout';
+import React from 'react';
+import About from '@/components/About';
 
-export default function About() {
-  return (
-    <BaseLayout>
-      <div>About (coming soon)</div>
-    </BaseLayout>
-  );
+export default function AboutPage() {
+  return <About />;
 }

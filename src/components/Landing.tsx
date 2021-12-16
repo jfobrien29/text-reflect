@@ -16,32 +16,29 @@ import { TWITTER_LINK } from '@/utils/constants';
 const Landing: React.FC<any> = () => {
   return (
     <BaseLayout>
-      <div className="bg-orange">
-        {/** Header */}
-        <div className="flex flex-col">
-          <h1 className=" text-white text-2xl font-semibold max-w-2xl">
-            I'm Co-Founder & CTO of{' '}
-            <a className="underline" href="https://onepager.vc">
-              OnePager
-            </a>
-            , interested in programming, startups, education, biotech, and
-            climate change solutions. At my core, I like to build things.
-          </h1>
+      <div className="flex flex-col max-w-2xl">
+        <h1 className=" text-white text-2xl font-semibold ">
+          I'm Co-Founder & CTO of{' '}
+          <a className="underline" href="https://onepager.vc">
+            OnePager
+          </a>
+          , interested in programming, startups, education, biotech, and climate
+          change solutions. At my core, I like to build things.
+        </h1>
 
-          {/** divider */}
-          <div className="mt-8 w-full h-px bg-white"></div>
+        {/** divider */}
+        <div className="mt-8 w-full h-px bg-white"></div>
 
-          <h2 className="mt-8 text-lg">
-            For my latest,{' '}
-            <a className="underline" href={TWITTER_LINK}>
-              follow me on Twitter.
-            </a>
-          </h2>
+        <h2 className="mt-8 text-lg">
+          For my latest,{' '}
+          <a className="underline" href={TWITTER_LINK}>
+            follow me on Twitter.
+          </a>
+        </h2>
 
-          <h2 className="mt-8 italic text-lg">Highlighed blog posts</h2>
+        <h2 className="mt-8 italic text-lg">Highlighed blog posts</h2>
 
-          <h3 className="mt-4 text-lg">Coming soon...</h3>
-        </div>
+        <h3 className="mt-4 text-lg">Coming soon...</h3>
       </div>
     </BaseLayout>
   );
