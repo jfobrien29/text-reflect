@@ -2,7 +2,11 @@ import React from 'react';
 import BaseLayout from '@/containers/BaseLayout';
 
 const About: React.FC<any> = () => (
-  <BaseLayout>
+  <BaseLayout
+    title="About Jack O'Brien"
+    description="Co-Founder & CTO of OnePager, interested in programming, startups, education, biotech, and climate
+change solutions. At my core, I like to build things. Previously Google, IBM, and Princeton University."
+  >
     <div className="flex flex-col max-w-2xl">
       <h1 className="text-3xl font-semibold">About</h1>
 
@@ -64,7 +68,7 @@ const About: React.FC<any> = () => (
 
       <p className="mt-8 text-lg">
         <span>Usually</span> I get in all the coding I need from my main job,
-        but I do hack on a few side projects occationally. A few notable ones:
+        but I do hack on a few side projects occationally. A few fun ones:
         <ul className="list-disc ml-6 mt-4 gap-4">
           <li>
             <span className="font-semibold">On the Hook</span>, fundraising via

@@ -14,7 +14,11 @@ import { TWITTER_LINK } from '@/utils/constants';
 // };
 
 const Landing: React.FC<any> = () => (
-  <BaseLayout>
+  <BaseLayout
+    title="Jack O'Brien's personal site"
+    description="Co-Founder & CTO of OnePager, interested in programming, startups, education, biotech, and climate
+  change solutions. At my core, I like to build things."
+  >
     <div className="flex flex-col max-w-2xl">
       <h1 className="text-white text-xl md:text-2xl font-semibold">
         I&apos;m a Co-Founder of{' '}
