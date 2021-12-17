@@ -55,7 +55,7 @@ const BaseHeader: React.FC<any> = ({
 
       <style>
         @import
-        url('https://fonts.googleapis.com/css2?family=Readex+Pro&display=swap');
+        url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;600;700&display=swap');
       </style>
     </Head>
   );

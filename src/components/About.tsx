@@ -63,23 +63,42 @@ const About: React.FC<any> = () => (
       <h2 className="mt-8 italic text-lg">Misc Side Projects</h2>
 
       <p className="mt-8 text-lg">
-        I usually get in all the coding I need from my main job, but
-        occationally I hack on a few side projects. A few notable ones:
-        <ul className="list-disc ml-6 mt-4">
-          <li>On the Hook (coming soon...)</li>
-          <li>Text Reflect (coming soon...)</li>
+        <span>Usually</span> I get in all the coding I need from my main job,
+        but I do hack on a few side projects occationally. A few notable ones:
+        <ul className="list-disc ml-6 mt-4 gap-4">
           <li>
-            <a className="underline" href="https://calendarchallenger.com/">
+            <span className="font-semibold">On the Hook</span>, fundraising via
+            text among networks (coming soon...)
+          </li>
+          <li className="mt-4">
+            <span className="font-semibold">Text Reflect</span>, daily self
+            reflection via text (coming soon...,)
+          </li>
+          <li className="mt-4">
+            <a
+              className="underline font-semibold"
+              href="https://calendarchallenger.com/"
+            >
               Calendar Challenger
-            </a>{' '}
-            (2021){' '}
-          </li>
-          <li>
-            <a className="underline" href="https://skystheminute.com/">
-              Skys the Minute (2018)
             </a>
+            , complete a single challenge every day to build consistency, submit
+            via text, show results in public (2021){' '}
           </li>
-          <li>Impact Environmental Calculator (2016)</li>
+          <li className="mt-4">
+            <a
+              className="underline font-semibold"
+              href="https://skystheminute.com/"
+            >
+              Skys the Minute
+            </a>
+            , use your free minutes to learn something (2018)
+          </li>
+          <li className="mt-4">
+            <span className="font-semibold">
+              Impact Environmental Calculator
+            </span>
+            , calculate and improve your true impact on the environment (2016)
+          </li>
         </ul>
       </p>
     </div>
