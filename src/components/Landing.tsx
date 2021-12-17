@@ -16,8 +16,8 @@ import { TWITTER_LINK } from '@/utils/constants';
 const Landing: React.FC<any> = () => (
   <BaseLayout>
     <div className="flex flex-col max-w-2xl">
-      <h1 className="text-white text-2xl font-semibold">
-        I&apos;m Co-Founder & CTO of{' '}
+      <h1 className="text-white text-xl md:text-2xl font-semibold">
+        I&apos;m a Co-Founder of{' '}
         <a className="underline" href="https://onepager.vc">
           OnePager
         </a>
@@ -26,7 +26,7 @@ const Landing: React.FC<any> = () => (
       </h1>
 
       {/** divider */}
-      <div className="mt-8 w-full h-px bg-white" />
+      <div className="mt-8 h-px bg-white w-3/4 mx-auto" />
 
       <h2 className="mt-8 text-lg">
         For my latest,{' '}
