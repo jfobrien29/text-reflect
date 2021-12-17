@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 const LogoLink: React.FC<any> = ({ href, icon }) => (
   <div className="text-white">
     <Link href={href} passHref>
-      <a className="cursor-pointer" type="link">
+      <a className="cursor-pointer" type="link" target="_blank">
         {icon}
       </a>
     </Link>

@@ -26,7 +26,7 @@ const Landing: React.FC<any> = () => (
       </h1>
 
       {/** divider */}
-      <div className="mt-8 h-px bg-white w-3/4 mx-auto" />
+      <div className="mt-12 w-full h-px bg-white  mx-auto" />
 
       <h2 className="mt-8 text-lg">
         For my latest,{' '}

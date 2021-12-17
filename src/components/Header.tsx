@@ -3,9 +3,14 @@ import Link from 'next/link';
 import React from 'react';
 import LogoLinks from './LogoLinks';
 
-const HeaderLink: React.FC<any> = ({ href, text }) => (
+const HeaderLink: React.FC<any> = ({ href, text, newTab }) => (
   <Link href={href} passHref>
-    <a className="text-white font-semibold text-md">{text}</a>
+    <a
+      className="text-white font-semibold text-md"
+      target={newTab ? '_blank' : ''}
+    >
+      {text}
+    </a>
   </Link>
 );
 
@@ -18,7 +23,7 @@ const Header: React.FC = () => (
       <div className="flex gap-2 md:gap-8 items-center">
         <HeaderLink href="/blog" text="Blog" />
         <HeaderLink href="/about" text="About" />
-        <HeaderLink href={TWITTER_LINK} text="Twitter" />
+        <HeaderLink href={TWITTER_LINK} text="Twitter" newTab />
       </div>
     </nav>
   </header>
