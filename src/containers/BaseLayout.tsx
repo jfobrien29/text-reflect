@@ -11,11 +11,11 @@ const BaseLayout: React.FC<any> = ({ children }) => {
       <div className="w-full min-h-screen flex flex-col font-readex-pro">
         <Header />
 
-        <main className="w-full flex justify-center align-middle text-white px-4">
+        <main className="w-full flex justify-center align-middle text-white">
           {children}
         </main>
 
-        {/* Spacer to ensure footer at bottom of the page */}
+        {/* Spacer to ensure ooter at bottom of the page */}
         <div className="flex-grow"></div>
 
         <Footer />

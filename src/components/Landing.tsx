@@ -19,7 +19,7 @@ const Landing: React.FC<any> = () => (
     description="Co-Founder & CTO of OnePager, interested in programming, startups, education, biotech, and climate
   change solutions. At my core, I like to build things."
   >
-    <div className="flex flex-col max-w-2xl">
+    <div className="flex flex-col max-w-2xl px-4">
       <h1 className="text-white text-xl md:text-2xl font-semibold">
         I&apos;m a Co-Founder of{' '}
         <a className="underline" href="https://onepager.vc">

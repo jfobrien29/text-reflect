@@ -17,7 +17,7 @@ const BlogListing: React.FC<any> = ({ slug }) => {
 
 const Blog: React.FC<BlogProps> = ({ slugs }) => (
   <BaseLayout>
-    <div className="flex flex-col max-w-2xl">
+    <div className="flex flex-col max-w-2xl px-4">
       <h1 className=" text-white text-3xl font-semibold">Blog</h1>
 
       {slugs

@@ -11,7 +11,7 @@ export interface Blog {
 export const ALL_BLOGS = new Map<string, Blog>([
   [
     'best-of-2021',
-    { title: 'Best Reads of 2021', date: 'TBD', post: <BestOf2021 /> },
+    { title: 'Best Reads of 2021', date: '2021-12-17', post: <BestOf2021 /> },
   ],
   [
     'year-in-review',

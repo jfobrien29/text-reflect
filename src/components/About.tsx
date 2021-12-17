@@ -7,7 +7,7 @@ const About: React.FC<any> = () => (
     description="Co-Founder & CTO of OnePager, interested in programming, startups, education, biotech, and climate
 change solutions. At my core, I like to build things. Previously Google, IBM, and Princeton University."
   >
-    <div className="flex flex-col max-w-2xl">
+    <div className="flex flex-col max-w-2xl px-4">
       <h1 className="text-3xl font-semibold">About</h1>
 
       <p className="mt-8 text-lg">
