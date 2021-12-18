@@ -42,14 +42,8 @@ const Landing: React.FC<any> = () => (
             OnePager
           </a>
           , interested in software, startups, education, biotech, and climate
-          change solutions.{''}
-          <span className="hidden md:inline md:ml-3">
-            At my core, I'm a builder.
-          </span>
+          change solutions. At my core, I'm a builder.
         </h1>
-        <h2 className="text-xl leading-7 md:hidden font-semibold mt-6">
-          At my core, I'm a builder.
-        </h2>
       </div>
 
       <div className="px-4 max-w-2xl mt-1 mx-auto ">
