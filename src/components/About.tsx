@@ -14,10 +14,23 @@ change solutions. At my core, I like to build things. Previously Google, IBM, an
         Co-Founder and CTO of{' '}
         <a className="underline" href="https://onepager.vc">
           OnePager
+        </a>{' '}
+        and{' '}
+        <a className="underline" href="https://openscout.vc">
+          Open Scout
         </a>
-        , trying to give more founders quality fundraising exposure. If more
+        , aiming to give more founders quality fundraising exposure. If more
         founders can access early stage venture funding, more great ideas will
         become sustainable businesses.
+      </p>
+
+      <p className="mt-8 text-lg">
+        Founding Fellow of{' '}
+        <a className="underline" href="https://kernel.community/">
+          Kernel's 5th cohort
+        </a>
+        , a community of 250 individuals learning web3. Proud to say I owned
+        jackob.eth long before the ENS airdrop.
       </p>
 
       <h2 className="mt-8 italic text-lg">Previously</h2>
@@ -79,6 +92,27 @@ change solutions. At my core, I like to build things. Previously Google, IBM, an
           <li className="mt-4">
             <span className="font-semibold">Text Reflect</span>, daily self
             reflection via text (coming soon...,)
+          </li>
+          <li className="mt-4">
+            <a
+              className="underline font-semibold"
+              href="https://build-space-nft-web-app.vercel.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Marathon NFT Minter
+            </a>
+            , mint simple randomized NFTs for the NYC marathon. Built thanks to
+            a{' '}
+            <a
+              className="underline font-semibold"
+              href="https://buildspace.so/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              buildspace course
+            </a>{' '}
+            (2021)
           </li>
           <li className="mt-4">
             <a
