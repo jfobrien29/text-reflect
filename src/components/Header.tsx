@@ -1,13 +1,13 @@
 import { TWITTER_LINK } from '@/utils/constants';
 import Link from 'next/link';
 import React from 'react';
-import LogoLinks from './LogoLinks';
 
 const HeaderLink: React.FC<any> = ({ href, text, newTab }) => (
   <Link href={href} passHref>
     <a
       className="text-white font-semibold text-md"
       target={newTab ? '_blank' : ''}
+      rel="noreferrer"
     >
       {text}
     </a>

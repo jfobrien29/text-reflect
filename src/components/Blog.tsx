@@ -4,7 +4,12 @@ import { ALL_BLOGS_MAP, IBlogPost } from '@/blogs/all';
 import Link from 'next/link';
 
 const BlogListing: React.FC<any> = ({ slug }) => {
-  const blog: IBlogPost = ALL_BLOGS_MAP.get(slug)!;
+  const blog: IBlogPost | undefined = ALL_BLOGS_MAP.get(slug);
+
+  if (!blog) {
+    return null;
+  }
+
   return (
     <Link href={`/blog/${slug}`} passHref>
       <a>

@@ -20,11 +20,10 @@ const BlogPost: React.FC<any> = () => {
   return (
     <article>
       <P>
-        If you're reading this, I'm probably recommending you a book! Check out
-        my best reads of 2021 below. I've reflected on my favorite books and
-        articles the past several years, but this year (and in years to come)
-        I'm making the top of the list public. I wholeheartedly recommend a read
-        of everything mentioned here!
+        If you're reading this, I'm probably recommending you a book! I've
+        reflected on my favorite books and articles the past several years, but
+        this year (and in years to come) I'm making the top of that list public.
+        I wholeheartedly recommend a read of everything I mention here!
       </P>
       <Heading2 id="books">My Top 3 Books</Heading2>
       <P>
@@ -48,23 +47,21 @@ const BlogPost: React.FC<any> = () => {
         After reading this book, its clear to me that CRISPR gene editing is
         going to quickly change the world as we know it—this is not hyperbole.
         Jennifer Doudna’s groundbreaking paper on CRISPR was only published in
-        2012, and already in 2021 we’re seeing multiple FDA approved therapies
-        treating human patients (editing their genes!).
+        2012, and by 2018 the first known children with with CRISPR edited genes
+        were born in China.
       </P>
       <P>
         Worth the read for excellent background on the discovery of CRISPR, the
-        competitive race to patent gene editing, the companies and therapies
-        already in use today, and finally the ethics of editing a genome. CRISPR
-        gene editing can be done in somatic cells (ex. eye cells, liver cells)
-        and germ line cells (ex. stem cells that will become a fetus and
-        eventually a baby). Therapies in somatic cells have the promise of
-        curing diseases for individuals receieving treatment, but editing done
-        to germ line cells (ex. pre-birth) will affect that person and all of
-        that person's decedents. What happens to the world when artificial
-        changes can only be bought by some and are inherited forever? What
-        happens when we play with the delicate balance of genetics in our own
-        bodies and the ecosystems of world? No one knows, but we’ve definitely
-        turned a corner.
+        competitive race to patent gene editing, and the ethics of editing a
+        genome. CRISPR gene editing can be done in somatic cells (ex. eye cells,
+        liver cells) and germ line cells (ex. stem cells that will become a
+        baby). Therapies in somatic cells will cure disease for that single
+        patient, but editing done to germ line cells will affect that person and
+        all of that person's decedents. What happens to the world when
+        artificial changes can only be bought by some and are inherited by their
+        bloodline forever? What happens when we play with the delicate balance
+        of genetics in our own bodies and the ecosystems of world? No one knows,
+        but we’ve definitely turned a corner.
       </P>
       <P>
         Walter Isaacson is an incredible author, and the book is beautifully
@@ -76,8 +73,7 @@ const BlogPost: React.FC<any> = () => {
           It was a big success
         </A>
         , and I don't think there's anything like in-Manhattan-apartment
-        biohacking to cemented my belief in CRISPR as a groundbreaking
-        innovation.
+        biohacking to cement my belief in CRISPR as a groundbreaking innovation.
       </P>
       <Heading4>How I found it</Heading4>
       <P>
@@ -115,11 +111,10 @@ const BlogPost: React.FC<any> = () => {
       </P>
       <P>
         One andidote that stuck out to me: an intern litterally crawled into a
-        rocket fuselage to stop it from collapsing during air freight and saves
-        the day (and maybe the company as we know it). The reason they had the
-        rocket on air freight? They couldn't secure a launch pad in the US, so
-        they had to build one near a US military base in the middle of Pacific
-        Ocean.
+        rocket fuselage to stop it from collapsing during air freight and saved
+        the day (and maybe the company). The reason they had the rocket on air
+        freight? SpaceX couldn't secure a launch pad in the US, so they had to
+        build one near a US military base in the middle of Pacific Ocean.
       </P>
       <P>
         I’m not an Elon fan boy, but it's hard not to respect his ambition after
@@ -134,8 +129,8 @@ const BlogPost: React.FC<any> = () => {
       <P>
         I read this book and thought "damn, I should have been a mechanical
         engineer!" But more than that, I got lost in the excitement of space
-        travel, the work of ambitious & talented people, and the chaos of early
-        stage companies.
+        travel, the work of ambitious & talented people, and the chaos of an
+        early stage company.
       </P>
       <Heading4>How I found it</Heading4>
       <P>
@@ -156,24 +151,24 @@ const BlogPost: React.FC<any> = () => {
       <Heading4>Why this book is awesome</Heading4>
       <P>
         The best fiction book I’ve read in a long time. This book finds a way to
-        make the science fiction seem believable for some truly outrageous
+        make crazy science seem believable enough for some truly outrageous
         ideas. If you liked reading The Martian by Andy Weir, you’ll love this
-        book. It’s the Martian, taken 100 steps further into deep space.
+        book. It’s the Martian, taken 100 steps further and into deep space.
       </P>
       <P>
-        A few things to call out from the book. Half of the book revolves around
-        our main character, a biology professor on a solo mission in deep space.
-        The other half happens as a series of flashbacks on earth. Slowly, it's
-        revealed why a mission to deep space was necessary, how that mission
-        would be theoretically possible, and how the whole world needs to rally
-        together make it happen. It's an awesome page turner.
+        Half of the book revolves around our main character, a biology professor
+        on a solo mission in deep space. The other half happens as a series of
+        flashbacks on earth. Slowly, it's revealed why a mission to deep space
+        was necessary, how that mission would be theoretically possible, and how
+        the whole world needs to rally together make it happen. It's an awesome
+        page turner, and I think they're making a movie out of it soon.
       </P>
       <Heading4>How I found it</Heading4>
       <P>
         I’d read a ton of non-fiction/startupy books and wanted to turn back
         into fiction. I liked the Martian, and saw that this book had been
-        recently released. It’s incredible science fiction, and was hard to put
-        down.
+        recently released. I think it's incredible science fiction, and was hard
+        to put down.
       </P>
 
       <P>
@@ -182,7 +177,7 @@ const BlogPost: React.FC<any> = () => {
         </A>
       </P>
 
-      <Heading3 id="book-honorable-mentions">Honorable Mention Books</Heading3>
+      {/* <Heading3 id="book-honorable-mentions">Honorable Mention Books</Heading3>
       <Heading4>Lean Startup by Eric Ries</Heading4>
       <P>
         Excellent framework for creative metrics driven startups. Your goal at a
@@ -198,16 +193,16 @@ const BlogPost: React.FC<any> = () => {
         way), and more relevant today with the impending ~metaverse~. Spoiler
         alert, the moral of the story is that you have your best experiences in
         the real world, not online.
-      </P>
+      </P> */}
 
       <Heading2 id="articles">My Top 3 Articles</Heading2>
       <P>
-        I probably read a minimum 2 articles per day from sources like the{' '}
+        I probably read (skim) at least 3 articles per day from sources like the{' '}
         <A href="https://thehustle.co/">The Hustle</A>,{' '}
         <A href="https://www.washingtonpost.com/">The Washington Post</A>, and
-        my Twitter feed. It’s rare I save and share an article, but those I do I
-        think are worth noting. (For the record, I found these three articles
-        via Twitter)
+        my Twitter feed. It’s rare I remember an article more than a week, but
+        the best ones stick with me. (For the record, I found these three
+        articles via Twitter)
       </P>
 
       <Heading3 id="article1">
@@ -325,8 +320,8 @@ const BlogPost: React.FC<any> = () => {
       </P>
       <Divider />
       <P>
-        Hope you enjoyed this list, and if you end up reading something please
-        let me know!
+        Hope you enjoyed this list, and if you end up reading something let me
+        know!
       </P>
       <P> - Jack</P>
     </article>

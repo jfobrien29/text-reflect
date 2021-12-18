@@ -15,10 +15,6 @@ import Link from 'next/link';
 //   );
 // };
 
-const LandingBlogPost: React.FC<any> = () => {
-  return null;
-};
-
 const Landing: React.FC<any> = () => (
   <BaseLayout
     title="Jack O'Brien's personal site"
@@ -53,7 +49,7 @@ const Landing: React.FC<any> = () => (
             <div className="flex gap-2 mt-4 items-baseline" key={post.slug}>
               <h3 className="text-lg underline">
                 {post.isExternal ? (
-                  <a href={post.link} target="_blank">
+                  <a href={post.link} target="_blank" rel="noreferrer">
                     {post.title}
                   </a>
                 ) : (

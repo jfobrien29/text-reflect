@@ -23,7 +23,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async ({}) => {
+export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: BLOG_SLUGS.map((slug: any) => ({ params: { slug } })),
     fallback: true,
