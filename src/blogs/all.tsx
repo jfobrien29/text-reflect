@@ -28,6 +28,8 @@ export const ALL_BLOG_POSTS: IBlogPost[] = [
   YearInReview2021,
 ];
 
+export const HOSTED_BLOG_POSTS: IBlogPost[] = [BestOf2021];
+
 export const ALL_BLOGS_MAP = new Map<string, IBlogPost>(
   ALL_BLOG_POSTS.reduce((postsMap, post) => {
     postsMap.set(post.slug, post);
@@ -35,4 +37,5 @@ export const ALL_BLOGS_MAP = new Map<string, IBlogPost>(
   }, new Map<string, IBlogPost>()),
 );
 
-export const BLOG_SLUGS = Array.from(ALL_BLOGS_MAP.keys());
+export const BLOG_SLUGS = ALL_BLOG_POSTS.map((post) => post.slug);
+export const HOSTED_BLOG_SLUGS = HOSTED_BLOG_POSTS.map((post) => post.slug);

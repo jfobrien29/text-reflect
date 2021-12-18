@@ -1,6 +1,5 @@
-import { BLOG_SLUGS } from '@/blogs/all';
-import { APP_URL } from '@/utils/config';
-import { ROUTES } from '@/utils/constants';
+import { HOSTED_BLOG_SLUGS } from '@/blogs/all';
+import { ROUTES, SITE_URL } from '@/utils/constants';
 
 const STATIC_PAGES = [ROUTES.HOME, ROUTES.BLOG, ROUTES.ABOUT];
 
@@ -11,16 +10,16 @@ const generateSiteMap = async () => {
      ${STATIC_PAGES.map((path: string) => {
        return `
       <url>
-        <loc>${`${APP_URL}${path}`}</loc>
+        <loc>${`${SITE_URL}${path}`}</loc>
         <priority>0.7</priority>
       </url>
     `;
      }).join('')}
      <!--Blog routes-->
-     ${BLOG_SLUGS.map((slug: string) => {
+     ${HOSTED_BLOG_SLUGS.map((slug: string) => {
        return `
       <url>
-          <loc>${`${APP_URL}/blog/${slug}`}</loc>
+          <loc>${`${SITE_URL}/blog/${slug}`}</loc>
           <priority>0.7</priority>
       </url>
      `;
