@@ -22,7 +22,10 @@ const BlogListing: React.FC<any> = ({ slug }) => {
 };
 
 const Blog: React.FC = () => (
-  <BaseLayout>
+  <BaseLayout
+    title="Jack O'Brien's Blog"
+    description="Blog post from Jack O'Brien's life, work, and everything else. Includes posts from this site and the OnePager blog."
+  >
     <div className="flex flex-col max-w-2xl px-4">
       <h1 className=" text-white text-3xl font-semibold">Blog</h1>
 
