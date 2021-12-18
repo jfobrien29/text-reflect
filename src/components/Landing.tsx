@@ -52,8 +52,8 @@ const Landing: React.FC<any> = () => (
         </h2>
       </div>
 
-      <div className="px-4 max-w-2xl font-readex-pro mx-auto ">
-        <div className="w-full h-px bg-white mx-auto mt-5" />
+      <div className="px-4 max-w-2xl mt-1 mx-auto ">
+        <div className="w-full h-px bg-white mx-auto" />
 
         <h2 className="mt-8 text-lg">
           For my latest,{' '}
