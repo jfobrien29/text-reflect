@@ -18,12 +18,12 @@ import Link from 'next/link';
 const Landing: React.FC<any> = () => (
   <BaseLayout
     title="Jack O'Brien's personal site"
-    description="Co-Founder & CTO of OnePager, interested in software, startups, education, biotech, and climate
+    description="Co-Founder and CTO of OnePager, interested in software, startups, education, biotech, and climate
   change solutions. At my core, I like to build things."
   >
     <div className="flex flex-col max-w-2xl px-4">
       <h1 className="text-white text-xl md:text-2xl font-semibold">
-        I&apos;m a Co-Founder of{' '}
+        I'm a Co-Founder of{' '}
         <a className="underline" href="https://onepager.vc">
           OnePager
         </a>

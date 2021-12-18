@@ -4,7 +4,7 @@ import BaseLayout from '@/containers/BaseLayout';
 const About: React.FC<any> = () => (
   <BaseLayout
     title="About Jack O'Brien"
-    description="Co-Founder & CTO of OnePager, interested in programming, startups, education, biotech, and climate
+    description="Co-Founder and CTO of OnePager, interested in programming, startups, education, biotech, and climate
 change solutions. At my core, I like to build things. Previously Google, IBM, and Princeton University."
   >
     <div className="flex flex-col max-w-2xl px-4">
