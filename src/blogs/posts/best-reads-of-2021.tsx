@@ -223,7 +223,7 @@ const BlogPost: React.FC<any> = () => {
         questions every quarter, requiring a hit rate of 3/5 to continue down
         her current path:
       </P>
-      <ul className="mt-6 list-disc ml-6">
+      <ul className="mt-6 list-disc ml-6 orange-list">
         <li>
           <span className="font-semibold">Accomplishment</span>: Have I done
           anything noteworthy these last three months?

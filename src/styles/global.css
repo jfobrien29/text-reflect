@@ -28,3 +28,7 @@ html {
 .negative-landing-margin {
   margin-top: -126px;
 }
+
+.orange-list li::marker {
+  color: #f80;
+}

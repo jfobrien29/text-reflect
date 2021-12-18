@@ -12,7 +12,12 @@ export const Quote: React.FC<any> = ({ children }) => {
 
 export const A: React.FC<any> = ({ children, href }) => {
   return (
-    <a className="underline" href={href} target="_blank" rel="noreferrer">
+    <a
+      className="underline decoration-orange"
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+    >
       {children}
     </a>
   );
