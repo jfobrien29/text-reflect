@@ -13,7 +13,7 @@ import {
 
 export const SLUG = 'best-reads-of-2021';
 export const TITLE = 'Best Reads of 2021';
-export const DATE = '2021-12-17';
+export const DATE = '2021-12-18';
 export const EXCERPT = `My top reads from 2021. I've reflected on my favorite books and articles the past several years, but this year (and in years to come) I'm making my list public. I wholeheartedly recommend a read of everything on this mentioned!`;
 
 const BlogPost: React.FC<any> = () => {
