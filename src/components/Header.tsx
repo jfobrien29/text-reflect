@@ -7,7 +7,7 @@ const HeaderLink: React.FC<any> = ({ href, text, isExternal }) => {
     return (
       <a
         href={href}
-        className="font-semibold text-md"
+        className="font-semibold text-sm md:text-md"
         target="_blank"
         rel="noreferrer"
       >
@@ -18,7 +18,7 @@ const HeaderLink: React.FC<any> = ({ href, text, isExternal }) => {
 
   return (
     <Link href={href} passHref>
-      <a className="font-semibold text-md">{text}</a>
+      <a className="font-semibold text-sm md:text-md">{text}</a>
     </Link>
   );
 };
@@ -29,7 +29,7 @@ const Header: React.FC = () => (
       <h2 className=" text-2xl font-bold leading-tight">
         <Link href="/">Jack O'Brien</Link>
       </h2>
-      <div className="flex gap-2 md:gap-8 items-center">
+      <div className="flex gap-4 md:gap-8 items-center">
         <HeaderLink href="/blog" text="Blog" />
         <HeaderLink href="/about" text="About" />
         <HeaderLink href={TWITTER_LINK} text="Twitter" isExternal />

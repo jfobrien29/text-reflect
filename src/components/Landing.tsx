@@ -10,7 +10,7 @@ export const HighlighedBlogPost: React.FC<{ post: IBlogPost }> = ({ post }) => {
   return (
     <div>
       <div
-        className="mt-6 flex flex-col md:flex-row gap-2 items-baseline"
+        className="mt-6 flex flex-col md:flex-row md:gap-2 items-baseline"
         key={post.slug}
       >
         <h3 className="text-lg underline">
@@ -46,8 +46,12 @@ const Landing: React.FC<any> = () => (
               OnePager
             </a>
             , interested in software, startups, education, biotech, and climate
-            change solutions. At my core, I'm a builder.
+            change solutions.
+            <span className="hidden md:inline">At my core, I'm a builder.</span>
           </h1>
+          <h2 className="text-xl leading-7 md:hidden font-semibold mt-6">
+            At my core, I'm a builder.
+          </h2>
         </div>
       </div>
 

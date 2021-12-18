@@ -16,7 +16,7 @@ const LogoLink: React.FC<any> = ({ href, icon }) => (
 );
 
 const LogoLinks: React.FC = () => (
-  <div className="flex gap-2 md:gap-4">
+  <div className="flex gap-6 md:gap-4 text-xl md:text-lg">
     <LogoLink href="https://twitter.com/thejackobrien" icon={<FaTwitter />} />
     <LogoLink href="https://github.com/jfobrien29" icon={<FaGithub />} />
     <LogoLink
