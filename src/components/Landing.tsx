@@ -46,7 +46,10 @@ const Landing: React.FC<any> = () => (
       {LANDING_BLOG_POSTS.map((post: IBlogPost) => {
         return (
           <div>
-            <div className="flex gap-2 mt-4 items-baseline" key={post.slug}>
+            <div
+              className="flex flex-col md:flex-row gap-2 mt-4 items-baseline"
+              key={post.slug}
+            >
               <h3 className="text-lg underline">
                 {post.isExternal ? (
                   <a href={post.link} target="_blank" rel="noreferrer">
