@@ -20,10 +20,10 @@ const BlogPost: React.FC<any> = () => {
   return (
     <article>
       <P>
-        If you're reading this, I'm probably recommending you a book! I've
-        reflected on my favorite books and articles the past several years, but
-        this year (and in years to come) I'm making the top of that list public.
-        I wholeheartedly recommend a read of everything I mention here!
+        If you're reading this, I'm probably recommending you a book! I like to
+        think back on my favorite books and articles at the end of the year, and
+        this year (and in years to come) I'm published the best of the best. I
+        wholeheartedly recommend a read of everything mentioned!
       </P>
       <Heading2 id="books">My Top 3 Books</Heading2>
       <P>
@@ -38,37 +38,36 @@ const BlogPost: React.FC<any> = () => {
 
       <Heading4>Why this book is awesome</Heading4>
       <P>
-        This book is a deep dive into the nascent gene editing technique of
-        CRISPR, the scientists who uncovered the process from the natural world,
-        and the ethics of tampering with evolution. It’s extremely well written,
-        story driven, and hard to stop thinking about.
+        This book is a deep dive into the nascent gene editing technique CRISPR,
+        the scientists who discovered it, and the ethics of tampering with
+        evolution. It’s extremely well written, story driven, and hard to stop
+        thinking about.
       </P>
       <P>
-        After reading this book, its clear to me that CRISPR gene editing is
-        going to quickly change the world as we know it—this is not hyperbole.
-        Jennifer Doudna’s groundbreaking paper on CRISPR was only published in
-        2012, and by 2018 the first known children with with CRISPR edited genes
-        were born in China.
+        CRISPR gene editing is already changing the world as we know it—this is
+        not hyperbole. Jennifer Doudna’s groundbreaking paper on CRISPR was only
+        published in 2012, and by 2018 the first known children with with CRISPR
+        edited genes were born in China.
       </P>
       <P>
         Worth the read for excellent background on the discovery of CRISPR, the
-        competitive race to patent gene editing, and the ethics of editing a
-        genome. CRISPR gene editing can be done in somatic cells (ex. eye cells,
-        liver cells) and germ line cells (ex. stem cells that will become a
-        baby). Therapies in somatic cells will cure disease for that single
-        patient, but editing done to germ line cells will affect that person and
-        all of that person's decedents. What happens to the world when
-        artificial changes can only be bought by some and are inherited by their
-        bloodline forever? What happens when we play with the delicate balance
-        of genetics in our own bodies and the ecosystems of world? No one knows,
-        but we’ve definitely turned a corner.
+        competitive race to patent it, and the ethics of editing a genome.
+        CRISPR gene editing can be done in somatic cells (ex. eye cells, liver
+        cells) and germ line cells (ex. stem cells that become a baby).
+        Therapies in somatic cells can cure disease for that single patient, but
+        editing done to germ line cells will affect that person and all of that
+        person's decedents. What happens to the world when artificial changes
+        can only be bought by some and are inherited by their bloodline forever?
+        What happens when we play with the delicate balance of genetics in our
+        own bodies and the ecosystems of world? No one knows, but we’ve
+        definitely turned a corner.
       </P>
       <P>
         Walter Isaacson is an incredible author, and the book is beautifully
         written. He makes a point to stress how easy it is to use CRISPR
-        technology, and even has a chapter written about his own experience
-        editing cells in a lab. I had some FOMO after reading, so I went and got
-        an at home CRISPR kit myself and tried to edit cells in my apartment.{' '}
+        technology, and even has a chapter about his own experience editing
+        cells in a lab. I had some FOMO after reading, so I went and got an at
+        home CRISPR kit and attempted to edit genes in my apartment.{' '}
         <A href="https://twitter.com/thejackobrien/status/1454879546335969283?s=20">
           It was a big success
         </A>
@@ -79,7 +78,7 @@ const BlogPost: React.FC<any> = () => {
       <P>
         I found this book thanks to a conversation I had in 2020 with Ernie
         Parizeau, former VC and adjunct professor of entrepreneurship. I was
-        asking him for advice on whether I should leave Google to start a
+        asking him for career advice on whether I should leave Google to start a
         company (I didn't leave for another year), and he suggested I read from
         a series of books he’d curated on entrepreneurship, life, and venture
         capital. It's been an awesome resource to me,{' '}
@@ -104,17 +103,17 @@ const BlogPost: React.FC<any> = () => {
       <P>
         SpaceX started as a chaotic scrappy startup just like Google or Amazon,
         but they wanted to make something much more ambitious: reusable orbital
-        rockets. It was so ambitious they almost didn’t make it out of infancy,
-        and Musk almost went broke. Today, SpaceX has single handedly reclaimed
-        US space dominance and transformed the space industry. It’s a wild story
-        how they got there.
+        rockets. It was so ambitious they almost didn’t make it out of thier
+        infancy, and Musk almost went broke. Today, SpaceX has single handedly
+        reclaimed US space dominance and transformed the space industry. It’s a
+        wild story how they got there.
       </P>
       <P>
         One andidote that stuck out to me: an intern litterally crawled into a
         rocket fuselage to stop it from collapsing during air freight and saved
         the day (and maybe the company). The reason they had the rocket on air
         freight? SpaceX couldn't secure a launch pad in the US, so they had to
-        build one near a US military base in the middle of Pacific Ocean.
+        build one near a US military base in the middle of the Pacific Ocean.
       </P>
       <P>
         I’m not an Elon fan boy, but it's hard not to respect his ambition after
@@ -134,9 +133,12 @@ const BlogPost: React.FC<any> = () => {
       </P>
       <Heading4>How I found it</Heading4>
       <P>
-        I found this book the first week it came out after someone tweeted a
-        paragraph. Reading about startups + space, I was hooked. Consider this a
-        positive data point on taking random advice from Twitter!
+        I found this book the first week it came out after{' '}
+        <A href="https://twitter.com/Austen/status/1368939482687229955?s=20">
+          someone tweeted an interesting paragraph
+        </A>
+        . Reading about startups + space, I was hooked. Consider this a positive
+        data point on taking random advice from Twitter!
       </P>
 
       <P>
@@ -153,14 +155,14 @@ const BlogPost: React.FC<any> = () => {
         The best fiction book I’ve read in a long time. This book finds a way to
         make crazy science seem believable enough for some truly outrageous
         ideas. If you liked reading The Martian by Andy Weir, you’ll love this
-        book. It’s the Martian, taken 100 steps further and into deep space.
+        book. It’s the Martian, taken 100 steps further.
       </P>
       <P>
         Half of the book revolves around our main character, a biology professor
         on a solo mission in deep space. The other half happens as a series of
         flashbacks on earth. Slowly, it's revealed why a mission to deep space
         was necessary, how that mission would be theoretically possible, and how
-        the whole world needs to rally together make it happen. It's an awesome
+        the entire whole world rallies together make it happen. It's an awesome
         page turner, and I think they're making a movie out of it soon.
       </P>
       <Heading4>How I found it</Heading4>
@@ -212,16 +214,16 @@ const BlogPost: React.FC<any> = () => {
       </Heading3>
       <SubTitle>By Apoorva Govind</SubTitle>
       <P>
-        This article struck a nerve with me when I was deciding between leaving
-        Google or working on OnePager full time. It starts with the question
-        “What's the most expensive mistake you've made in your career?”
+        This article struck a nerve with me when I was deciding to leave Google
+        and work on OnePager full time. It starts with the question “What's the
+        most expensive mistake you've made in your career?”
       </P>
       <P>
-        Apoorva claims the answer is complacency. Complacency is a cancer for
-        big aspirations and your reputation. But how do you know when you’re
-        being complacent and it’s time to make a change? Apoorva asks herself 5
-        questions every quarter, requiring a hit rate of 3/5 to continue down
-        her current path:
+        Apoorva claims the answer is complacency. Complacency, she says, is a
+        cancer for big aspirations and your reputation. But how do you know when
+        you’re being complacent and it’s time to make a change? Apoorva asks
+        herself 5 questions every quarter, requiring a hit rate of 3/5 to
+        continue down her current path:
       </P>
       <ul className="mt-6 list-disc ml-6 orange-list">
         <li>
@@ -289,7 +291,7 @@ const BlogPost: React.FC<any> = () => {
       </Heading3>
       <SubTitle>By Amanda Gefter</SubTitle>
       <P>
-        Ok this article's insane, had this in my notes as the “mind bending
+        Ok this article's insane, and I had it in my notes as the “mind bending
         article.” It’s an interview with cognitive scientist Donald Hoffman, who
         claims that our perceptions of the world do not truly depict the reality
         we’re living in. It sounds crazy, but it’s worth a read.
