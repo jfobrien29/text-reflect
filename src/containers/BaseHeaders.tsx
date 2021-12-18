@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 const BaseHeader: React.FC<any> = ({
   title = "Jack O'Brien",
-  description = '',
+  description = 'Co-Founder and CTO of OnePager, interested in software, startups, education, biotech, and climate change solutions. At my core, I like to build things.',
 }) => {
   return (
     <Head>
@@ -51,6 +51,11 @@ const BaseHeader: React.FC<any> = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content="@thejackobrien" />
+
+      <link
+        href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;600;700&display=swap"
+        rel="stylesheet"
+      />
     </Head>
   );
 };
