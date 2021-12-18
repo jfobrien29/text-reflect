@@ -1,72 +1,85 @@
 import React from 'react';
-import BaseLayout from '@/containers/BaseLayout';
 import { TWITTER_LINK } from '@/utils/constants';
 import { IBlogPost, LANDING_BLOG_POSTS } from '@/blogs/all';
 import Link from 'next/link';
+import Header from './Header';
+import Footer from './Footer';
+import BaseHeader from '@/containers/BaseHeaders';
 
-// const Card: React.FC<any> = ({ title, text }) => {
-//   return (
-//     <div className="group w-3/4 md:w-56 h-64 p-3 border-white border rounded-sm hover:bg-white hover:shadow-lg transform duration-500 ease-in-out hover:-translate-y-1">
-//       <h2 className="text-white font-semibold text-lg group-hover:text-orange">
-//         {title}
-//       </h2>
-//       <p className="text-white text-sm group-hover:text-orange">{text}</p>
-//     </div>
-//   );
-// };
+export const HighlighedBlogPost: React.FC<{ post: IBlogPost }> = ({ post }) => {
+  return (
+    <div>
+      <div
+        className="mt-6 flex flex-col md:flex-row gap-2 items-baseline"
+        key={post.slug}
+      >
+        <h3 className="text-lg underline">
+          {post.isExternal ? (
+            <a href={post.link} target="_blank" rel="noreferrer">
+              {post.title}
+            </a>
+          ) : (
+            <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+          )}
+        </h3>
+        <p className="text-sm italic">{post.date}</p>
+      </div>
+      <p className="mt-1 elipsis-2-lines-text text-sm">{post.excerpt}</p>
+    </div>
+  );
+};
 
 const Landing: React.FC<any> = () => (
-  <BaseLayout
-    title="Jack O'Brien's personal site"
-    description="Co-Founder and CTO of OnePager, interested in software, startups, education, biotech, and climate
+  <>
+    <BaseHeader
+      title="Jack O'Brien's personal site"
+      description="Co-Founder and CTO of OnePager, interested in software, startups, education, biotech, and climate
   change solutions. At my core, I like to build things."
-  >
-    <div className="flex flex-col max-w-2xl px-4">
-      <h1 className="text-white text-xl md:text-2xl font-semibold">
-        I'm a Co-Founder of{' '}
-        <a className="underline" href="https://onepager.vc">
-          OnePager
-        </a>
-        , interested in software, startups, education, biotech, and climate
-        change solutions. At my core, I like to build things.
-      </h1>
+    />
+    <div className="text-white flex flex-col w-full h-screen snap-y snap-mandatory overflow-scroll">
+      <div className="flex flex-col h-screen w-full snap-center">
+        <Header />
+        <div className="flex flex-col justify-center max-w-3xl mx-auto h-screen px-4 negative-landing-margin ">
+          <h1 className="text-xl leading-7 md:text-4xl font-semibold">
+            I'm the CTO & Co-Founder of{' '}
+            <a className="underline" href="https://onepager.vc">
+              OnePager
+            </a>
+            , interested in software, startups, education, biotech, and climate
+            change solutions. At my core, I'm a builder.
+          </h1>
+        </div>
+      </div>
 
-      {/** divider */}
-      <div className="mt-12 w-full h-px bg-white  mx-auto" />
+      <div className="flex flex-col h-screen w-full snap-center">
+        <div className="px-4 max-w-2xl font-readex-pro mx-auto h-screen">
+          <div className="w-full h-px bg-white mx-auto mt-5" />
 
-      <h2 className="mt-8 text-lg">
-        For my latest,{' '}
-        <a className="underline" href={TWITTER_LINK}>
-          follow me on Twitter!
-        </a>
-      </h2>
+          <h2 className="mt-8 text-lg">
+            For my latest,{' '}
+            <a className="underline" href={TWITTER_LINK}>
+              follow me on Twitter!
+            </a>
+          </h2>
 
-      <h2 className="mt-8 italic text-lg">Highlighted blog posts</h2>
+          <h2 className="mt-8 italic text-lg">Highlighted blog posts</h2>
 
-      {LANDING_BLOG_POSTS.map((post: IBlogPost) => {
-        return (
-          <div key={`${post.date}-${post.title}`}>
-            <div
-              className="flex flex-col md:flex-row gap-2 mt-4 items-baseline"
-              key={post.slug}
-            >
-              <h3 className="text-lg underline">
-                {post.isExternal ? (
-                  <a href={post.link} target="_blank" rel="noreferrer">
-                    {post.title}
-                  </a>
-                ) : (
-                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                )}
-              </h3>
-              <p className="text-sm italic">{post.date}</p>
-            </div>
-            <p className="elipsis-1-lines-text">{post.excerpt}</p>
-          </div>
-        );
-      })}
+          {LANDING_BLOG_POSTS.map((post: IBlogPost) => {
+            return (
+              <HighlighedBlogPost
+                post={post}
+                key={`${post.date}-${post.title}`}
+              />
+            );
+          })}
+        </div>
+
+        <div className="flex-grow"></div>
+
+        <Footer />
+      </div>
     </div>
-  </BaseLayout>
+  </>
 );
 
 export default Landing;

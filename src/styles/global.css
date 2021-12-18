@@ -4,14 +4,11 @@
 
 html {
   @apply bg-orange;
+  font-family: 'Readex Pro', sans-serif;
 }
 
 .max-w-1030 {
   max-width: 1030px;
-}
-
-.font-readex-pro {
-  font-family: 'Readex Pro', sans-serif;
 }
 
 .elipsis-1-lines-text {
@@ -26,4 +23,8 @@ html {
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+}
+
+.negative-landing-margin {
+  margin-top: -126px;
 }
