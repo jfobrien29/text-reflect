@@ -60,15 +60,17 @@ change solutions. At my core, I like to build things. Previously Google, IBM, an
       </p>
 
       <p className="mt-8 text-lg">
-        Undergraduate degree in Computer Science from Princeton University. I
-        clearly like orange to fault.
+        Undergraduate engineering degree in Computer Science from Princeton. I
+        was recruited to Princeton on the men's lacrosse team where I played for
+        4 years. I clearly like orange to fault, let's go tigers.
       </p>
 
       <h2 className="mt-8 italic text-lg">Misc Side Projects</h2>
 
       <p className="mt-8 text-lg">
         <span>Usually</span> I get in all the coding I need from my main job,
-        but I do hack on a few side projects occationally. A few fun ones:
+        but I do hack on a few side projects occationally. A few fun ones both
+        technical and non-technical:
         <ul className="list-disc ml-6 mt-4 gap-4">
           <li>
             <span className="font-semibold">On the Hook</span>, fundraising via
@@ -82,6 +84,7 @@ change solutions. At my core, I like to build things. Previously Google, IBM, an
             <a
               className="underline font-semibold"
               href="https://calendarchallenger.com/"
+              target="_blank"
             >
               Calendar Challenger
             </a>
@@ -92,10 +95,35 @@ change solutions. At my core, I like to build things. Previously Google, IBM, an
             <a
               className="underline font-semibold"
               href="https://skystheminute.com/"
+              target="_blank"
             >
               Skys the Minute
             </a>
             , use your free minutes to learn something (2018)
+          </li>
+          <li className="mt-4">
+            <span className="font-semibold">
+              <a
+                className="underline font-semibold"
+                href="https://http://groovingagainstleukemia.com/"
+                target="_blank"
+              >
+                Grooving Against Leukemia
+              </a>
+            </span>
+            , NYC marathon fundraising team for LLS (2018-2021)
+          </li>
+          <li className="mt-4">
+            <span className="font-semibold">
+              <a
+                className="underline font-semibold"
+                href="https://www.instagram.com/oldrelly"
+                target="_blank"
+              >
+                Old Relly
+              </a>
+            </span>
+            , renovated a school bus and drove it to 37 states (2017)
           </li>
           <li className="mt-4">
             <span className="font-semibold">
