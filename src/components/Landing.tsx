@@ -1,10 +1,11 @@
 import React from 'react';
+import Link from 'next/link';
+
 import { TWITTER_LINK } from '@/utils/constants';
 import { IBlogPost, LANDING_BLOG_POSTS } from '@/blogs/all';
-import Link from 'next/link';
+import BaseHeader from '@/containers/BaseHeaders';
 import Header from './Header';
 import Footer from './Footer';
-import BaseHeader from '@/containers/BaseHeaders';
 
 export const HighlighedBlogPost: React.FC<{ post: IBlogPost }> = ({ post }) => {
   return (
@@ -78,7 +79,7 @@ const Landing: React.FC<any> = () => (
           })}
         </div>
 
-        <div className="flex-grow"></div>
+        <div className="flex-grow" />
 
         <Footer />
       </div>

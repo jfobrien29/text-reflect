@@ -1,7 +1,6 @@
 import React from 'react';
 import BaseLayout from '@/containers/BaseLayout';
 import { ALL_BLOGS_MAP, IBlogPost } from '@/blogs/all';
-import { Divider } from '@/blogs/common';
 
 const BlogPost: React.FC<any> = ({ slug }) => {
   const blog: IBlogPost | undefined = ALL_BLOGS_MAP.get(slug);
