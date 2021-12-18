@@ -62,7 +62,7 @@ change solutions. At my core, I like to build things. Previously Google, IBM, an
       <p className="mt-8 text-lg">
         Undergraduate engineering degree in Computer Science from Princeton. I
         was recruited to Princeton on the men's lacrosse team where I played for
-        4 years. I clearly like orange to fault, let's go tigers.
+        4 years. I clearly like orange to a fault, let's go tigers.
       </p>
 
       <h2 className="mt-8 italic text-lg">Misc Side Projects</h2>
