@@ -4,10 +4,10 @@ import Footer from '@/components/Footer';
 import BaseHeader from './BaseHeaders';
 import Header from '@/components/Header';
 
-const BaseLayout: React.FC<any> = ({ children }) => {
+const BaseLayout: React.FC<any> = ({ title, description, children }) => {
   return (
     <>
-      <BaseHeader />
+      <BaseHeader title={title} description={description} />
       <div className="w-full min-h-screen flex flex-col font-readex-pro">
         <Header />
 
