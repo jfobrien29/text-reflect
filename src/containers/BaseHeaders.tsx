@@ -1,15 +1,16 @@
 import Head from 'next/head';
 
 const BaseHeader: React.FC<any> = ({
-  title = "Jack O'Brien",
+  title = "Jack O'Brien's Website",
   description = 'Co-Founder and CTO of OnePager, interested in software, startups, education, biotech, and climate change solutions. At my core, I like to build things.',
 }) => {
   return (
     <Head>
       <meta charSet="utf-8" />
-
       <title>{title}</title>
+      <meta name="title" content={title} />
       <meta name="description" content={description} />
+      <meta name="keywords" content="" />
 
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="mobile-web-app-capable" content="yes" />
