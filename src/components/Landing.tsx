@@ -43,9 +43,9 @@ const Landing: React.FC<any> = () => (
 
       <h2 className="mt-8 italic text-lg">Highlighted blog posts</h2>
 
-      {LANDING_BLOG_POSTS.map((post: IBlogPost, index: number) => {
+      {LANDING_BLOG_POSTS.map((post: IBlogPost) => {
         return (
-          <div key={`${post.slug}-${index}`}>
+          <div key={`${post.date}-${post.title}`}>
             <div
               className="flex flex-col md:flex-row gap-2 mt-4 items-baseline"
               key={post.slug}

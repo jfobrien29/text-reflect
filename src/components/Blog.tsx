@@ -21,7 +21,7 @@ const BlogListing: React.FC<any> = ({ slug }) => {
   );
 };
 
-const Blog: React.FC<BlogProps> = () => (
+const Blog: React.FC = () => (
   <BaseLayout>
     <div className="flex flex-col max-w-2xl px-4">
       <h1 className=" text-white text-3xl font-semibold">Blog</h1>
@@ -34,7 +34,5 @@ const Blog: React.FC<BlogProps> = () => (
     </div>
   </BaseLayout>
 );
-
-export interface BlogProps {}
 
 export default Blog;
