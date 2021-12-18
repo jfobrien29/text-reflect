@@ -41,11 +41,11 @@ const Landing: React.FC<any> = () => (
         </a>
       </h2>
 
-      <h2 className="mt-8 italic text-lg">Highlighed blog posts</h2>
+      <h2 className="mt-8 italic text-lg">Highlighted blog posts</h2>
 
-      {LANDING_BLOG_POSTS.map((post: IBlogPost) => {
+      {LANDING_BLOG_POSTS.map((post: IBlogPost, index: number) => {
         return (
-          <div>
+          <div key={`${post.slug}-${index}`}>
             <div
               className="flex flex-col md:flex-row gap-2 mt-4 items-baseline"
               key={post.slug}

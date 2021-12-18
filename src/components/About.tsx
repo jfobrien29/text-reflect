@@ -67,7 +67,7 @@ change solutions. At my core, I like to build things. Previously Google, IBM, an
 
       <h2 className="mt-8 italic text-lg">Misc Side Projects</h2>
 
-      <p className="mt-8 text-lg">
+      <div className="mt-8 text-lg">
         <span>Usually</span> I get in all the coding I need from my main job,
         but I do hack on a few side projects occationally. A few fun ones both
         technical and non-technical:
@@ -85,6 +85,7 @@ change solutions. At my core, I like to build things. Previously Google, IBM, an
               className="underline font-semibold"
               href="https://calendarchallenger.com/"
               target="_blank"
+              rel="noreferrer"
             >
               Calendar Challenger
             </a>
@@ -96,6 +97,7 @@ change solutions. At my core, I like to build things. Previously Google, IBM, an
               className="underline font-semibold"
               href="https://skystheminute.com/"
               target="_blank"
+              rel="noreferrer"
             >
               Skys the Minute
             </a>
@@ -107,6 +109,7 @@ change solutions. At my core, I like to build things. Previously Google, IBM, an
                 className="underline font-semibold"
                 href="https://http://groovingagainstleukemia.com/"
                 target="_blank"
+                rel="noreferrer"
               >
                 Grooving Against Leukemia
               </a>
@@ -119,6 +122,7 @@ change solutions. At my core, I like to build things. Previously Google, IBM, an
                 className="underline font-semibold"
                 href="https://www.instagram.com/oldrelly"
                 target="_blank"
+                rel="noreferrer"
               >
                 Old Relly
               </a>
@@ -132,7 +136,7 @@ change solutions. At my core, I like to build things. Previously Google, IBM, an
             , calculate and improve your true impact on the environment (2016)
           </li>
         </ul>
-      </p>
+      </div>
     </div>
   </BaseLayout>
 );

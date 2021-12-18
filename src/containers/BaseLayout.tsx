@@ -15,7 +15,7 @@ const BaseLayout: React.FC<any> = ({ children }) => {
           {children}
         </main>
 
-        {/* Spacer to ensure ooter at bottom of the page */}
+        {/* Spacer to ensure footer at bottom of the page */}
         <div className="flex-grow"></div>
 
         <Footer />

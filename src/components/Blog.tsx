@@ -1,6 +1,6 @@
 import React from 'react';
 import BaseLayout from '@/containers/BaseLayout';
-import { ALL_BLOGS_MAP, IBlogPost } from '@/blogs/all';
+import { ALL_BLOGS_MAP, BLOG_SLUGS, IBlogPost } from '@/blogs/all';
 import Link from 'next/link';
 
 const BlogListing: React.FC<any> = ({ slug }) => {
@@ -21,22 +21,20 @@ const BlogListing: React.FC<any> = ({ slug }) => {
   );
 };
 
-const Blog: React.FC<BlogProps> = ({ slugs }) => (
+const Blog: React.FC<BlogProps> = () => (
   <BaseLayout>
     <div className="flex flex-col max-w-2xl px-4">
       <h1 className=" text-white text-3xl font-semibold">Blog</h1>
 
-      {slugs
-        ?.filter((slug: string) => ALL_BLOGS_MAP.has(slug))
-        .map((slug: string) => (
+      {BLOG_SLUGS.filter((slug: string) => ALL_BLOGS_MAP.has(slug)).map(
+        (slug: string) => (
           <BlogListing key={slug} slug={slug} />
-        ))}
+        ),
+      )}
     </div>
   </BaseLayout>
 );
 
-export interface BlogProps {
-  slugs: string[];
-}
+export interface BlogProps {}
 
 export default Blog;
