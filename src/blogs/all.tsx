@@ -1,32 +1,33 @@
 import { ReactNode } from 'react';
-import BestOf2021 from './posts/best-of-2021';
-import LeavingGoogleForOnePager from './posts/leaving-google-for-onepager';
+import { HowToWriteSoftware } from './external';
+import { YearInReview2021 } from './posts/year-in-review-2021';
+import { BestOf2021 } from './posts/best-reads-of-2021';
+import { LeavingGoogleForOnePager } from './posts/leaving-google-for-onepager';
 
-export interface Blog {
+export interface IBlogPost {
+  slug: string;
   title: string;
   date: string;
-  post: ReactNode;
+  excerpt: string;
+  link?: string;
+  post?: ReactNode;
+  isExternal?: boolean;
 }
 
-export const ALL_BLOGS = new Map<string, Blog>([
-  [
-    'best-of-2021',
-    { title: 'Best Reads of 2021', date: '2021-12-17', post: <BestOf2021 /> },
-  ],
-  [
-    'year-in-review',
-    {
-      title: '2021 Year in Review: Big Decisions, Big Races, and Back in NYC.',
-      date: 'TBD',
-      post: <LeavingGoogleForOnePager />,
-    },
-  ],
-  [
-    'leaving-google-for-onepager',
-    {
-      title: 'Leaving Google For OnePager',
-      date: 'TBD',
-      post: <LeavingGoogleForOnePager />,
-    },
-  ],
-]);
+export const LANDING_BLOG_POSTS: IBlogPost[] = [BestOf2021, HowToWriteSoftware];
+
+export const ALL_BLOG_POSTS: IBlogPost[] = [
+  BestOf2021,
+  HowToWriteSoftware,
+  LeavingGoogleForOnePager,
+  YearInReview2021,
+];
+
+export const ALL_BLOGS_MAP = new Map<string, IBlogPost>(
+  ALL_BLOG_POSTS.reduce((postsMap, post) => {
+    postsMap.set(post.slug, post);
+    return postsMap;
+  }, new Map<string, IBlogPost>()),
+);
+
+export const BLOG_SLUGS = Array.from(ALL_BLOGS_MAP.keys());

@@ -1,15 +1,15 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
+
+import { ALL_BLOGS_MAP, BLOG_SLUGS } from '@/blogs/all';
 import BlogPost from '@/components/BlogPost';
-import { BLOG_SLUGS } from '.';
-import { ALL_BLOGS } from '@/blogs/all';
 
 export default function BlogPage({ slug }: { slug: string }) {
   return <BlogPost slug={slug} />;
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
-  if (!ALL_BLOGS.has(params.slug)) {
+  if (!ALL_BLOGS_MAP.has(params.slug)) {
     return {
       redirect: {
         destination: '/blog',
@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
   }
 
   return {
-    props: { slug: params.slug ?? null },
+    props: { slug: params.slug || null },
   };
 };
 

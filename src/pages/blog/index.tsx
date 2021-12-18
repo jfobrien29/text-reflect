@@ -1,9 +1,7 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
 import Blog from '@/components/Blog';
-import { ALL_BLOGS } from '@/blogs/all';
-
-export const BLOG_SLUGS = Array.from(ALL_BLOGS.keys());
+import { BLOG_SLUGS } from '@/blogs/all';
 
 export default function BlogPage({ slugs }: any) {
   return <Blog slugs={slugs} />;

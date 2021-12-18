@@ -1,4 +1,5 @@
 import React from 'react';
+import { IBlogPost } from '../all';
 import {
   A,
   Divider,
@@ -10,17 +11,21 @@ import {
   SubTitle,
 } from '../common';
 
-export const title = 'Best Reads of 2021';
+export const SLUG = 'best-reads-of-2021';
+export const TITLE = 'Best Reads of 2021';
+export const DATE = '2021-12-17';
+export const EXCERPT =
+  'Every year I make a list of the best books and articles I’ve read, and this time I’m making it public. I wholeheartedly recommend a read of everything on this list.';
 
 const BlogPost: React.FC<any> = () => {
   return (
     <article>
       <P>
-        Every year I make a list of the best books and articles I’ve read, and
-        this time I’m making it public. I wholeheartedly recommend a read of
-        everything on this list.
+        The past few years I've made a list of the best books and articles I’ve
+        read, but This this time I’m making it public. I wholeheartedly
+        recommend a read of everything on this list!
       </P>
-      <Heading2>Books</Heading2>
+      <Heading2>Top 3 Books</Heading2>
       <P>
         Of the books I read this year, these three stuck out above the rest.
       </P>
@@ -29,7 +34,7 @@ const BlogPost: React.FC<any> = () => {
         Human Race{' '}
       </Heading3>
       <SubTitle>by Walter Isaacson</SubTitle>
-      <Heading4>Why this book is awesome:</Heading4>
+      <Heading4>Why this book is awesome</Heading4>
       <P>
         This book is about CRISPR gene editing, the scientists behind the
         discoveries, and the ethics of it all. It’s well written, story driven,
@@ -65,7 +70,7 @@ const BlogPost: React.FC<any> = () => {
         was a big success, and cemented my beliefs in CRISPR as a groundbreaking
         innovation.
       </P>
-      <Heading4>How I found it:</Heading4>
+      <Heading4>How I found it</Heading4>
       <P>
         I found this book thanks to a conversation I had in 2020 with Ernie
         Parizeau, former VC and adjunct professor of entrepreneurship, about
@@ -78,7 +83,7 @@ const BlogPost: React.FC<any> = () => {
         Liftoff: Elon Musk and the Desperate Early Days That Launched SpaceX
       </Heading3>
       <SubTitle>by Eric Berger</SubTitle>
-      <Heading4>Why this book is awesome:</Heading4>
+      <Heading4>Why this book is awesome</Heading4>
       <P>
         SpaceX started as a chaotic startup not unlike Google or Amazon, but
         they wanted to make something much more ambitious: orbital rockets.
@@ -100,7 +105,7 @@ const BlogPost: React.FC<any> = () => {
         rockets from a small US military launch pad in the middle of the
         pacific. They can’t get
       </P>
-      <Heading4>How I found it:</Heading4>
+      <Heading4>How I found it</Heading4>
       <P>
         I found this book the first week it came out after someone tweeted a
         paragraph from the book. Startups + space, I was hooked. A great read as
@@ -108,7 +113,7 @@ const BlogPost: React.FC<any> = () => {
       </P>
       <Heading3>Project Hail Mary: A Novel</Heading3>
       <SubTitle>by Andy Weir</SubTitle>
-      <Heading4>Why this book is awesome:</Heading4>
+      <Heading4>Why this book is awesome</Heading4>
       <P>
         The best fiction book I’ve read in a long time. This book finds a way to
         make the science seem believable for some truly outrageous ideas. I
@@ -116,14 +121,14 @@ const BlogPost: React.FC<any> = () => {
         you liked reading the Martian by Andy Weir, you’ll love this book. It’s
         the Martian, taken 5 steps further into the stars.
       </P>
-      <Heading4>How I found it:</Heading4>
+      <Heading4>How I found it</Heading4>
       <P>
         I’d read a ton of non-fiction/startupy books and wanted to turn back
         into fiction. I liked the Martian, and saw that this book had been
         recently released. It’s incredible science fiction, and was hard to put
         down.
       </P>
-      <Heading2>Articles</Heading2>
+      <Heading2>Top 3 Articles</Heading2>
       <P>
         I probably read at least 3 articles per day from sources like the The
         Hustle, Washington Post, and my twitter feed. It’s rare I save and share
@@ -137,44 +142,48 @@ const BlogPost: React.FC<any> = () => {
       </Heading3>
       <SubTitle>By Apoorva Govind</SubTitle>
       <P>
-        This article struck a nerve with my right when I was deciding whether or
-        not to leave Google to work on OnePager full time. It starts with the
-        question “What's the most expensive mistake you've made in your career?”
+        This article struck a nerve with me when I was deciding between leaving
+        Google or working on OnePager full time. It starts with the question
+        “What's the most expensive mistake you've made in your career?”
       </P>
       <P>
         The answer discussed in this article is complacency. Complacency is a
-        cancer for bigger aspirations and your reputation. But how do you know
-        when you’re being complacent and it’s time to make a change? Apoorva
-        asks herself 5 questions every quarter, requiring a hit rate of 3/5 to
+        cancer for big aspirations and your reputation. But how do you know when
+        you’re being complacent and it’s time to make a change? Apoorva asks
+        herself 5 questions every quarter, requiring a hit rate of 3/5 to
         continue down her current path:
       </P>
       <ul className="mt-6 list-disc ml-6">
         <li>
-          Accomplishment: Have I done anything noteworthy these last three
-          months?
+          <span className="font-semibold">Accomplishment</span>: Have I done
+          anything noteworthy these last three months?
         </li>
         <li className="mt-2">
-          Impact: Would I write a line in my resume about the work I have done
-          over these three months? Would I value this specific work experience
-          if I was hiring for my own company?{' '}
+          <span className="font-semibold">Impact</span>: Would I write a line in
+          my resume about the work I have done over these three months? Would I
+          value this specific work experience if I was hiring for my own
+          company?{' '}
         </li>
         <li className="mt-2">
-          Growth/Future alignment: Have I acquired valuable insights or skills?
-          Are these skills aligned with my future goals?
+          <span className="font-semibold">Growth/Future alignment</span>: Have I
+          acquired valuable insights or skills? Are these skills aligned with my
+          future goals?
         </li>
         <li className="mt-2">
-          Challenge: Have there been days when I was thinking about a work
-          problem in the shower so profoundly that I forgot if I used the soap
-          or not?
+          <span className="font-semibold">Challenge</span>: Have there been days
+          when I was thinking about a work problem in the shower so profoundly
+          that I forgot if I used the soap or not?
         </li>
         <li className="mt-2">
-          Community: Am I excited and happy to go to work every morning and see
-          my teammates. Do I believe in the mission, vision, and leadership of
-          this team or company? 
+          <span className="font-semibold">Community</span>: Am I excited and
+          happy to go to work every morning and see my teammates. Do I believe
+          in the mission, vision, and leadership of this team or company? 
         </li>
       </ul>
       <P>
-        I thought this framework was killer.{' '}
+        I thought this framework was killer. Having felt all of these at some
+        point but rarely all five at once, it a great system to structure your
+        life and know if it's time for change.{' '}
         <A href="https://apoorvagovind.substack.com/p/how-to-waste-your-career-one-comfortable?r=9ajfy&utm_campaign=post&utm_medium=web&utm_source=jackobrien">
           Read the full article for more depth.
         </A>
@@ -186,13 +195,20 @@ const BlogPost: React.FC<any> = () => {
       </Heading3>
       <SubTitle>By Chris Dixon</SubTitle>
       <P>
-        This article was written in 2009, but I stumbled upon it in fall 2021.
-        Awesome reasoning why it’s best to experiment with various roles and
-        opportunities early on in your career. You don’t want to commit too much
-        time to climbing the wrong hill in your life, and it always is tempting
-        to keep trudging forward.
+        Chris Dixon, entreprenuer and current a16z investor, wrote this article
+        in 2009, but I stumbled upon it in the fall of 2021. Awesome reasoning
+        why it’s best to experiment with various roles and opportunities early
+        on in your career. You don’t want to commit too much time to climbing
+        the wrong hill in your life, and it's always is tempting to keep
+        trudging forward.
       </P>
-      <P>It’s a short post about 6 paragraphs long, worth the read.</P>
+      <P>
+        It’s a short post about 6 paragraphs long,{' '}
+        <A href="https://cdixon.org/2009/09/19/climbing-the-wrong-hill/">
+          and absolutely worth the read
+        </A>
+        .
+      </P>
       <Heading3>
         <A href="https://www.quantamagazine.org/the-evolutionary-argument-against-reality-20160421/">
           The Evolutionary Argument Against Reality
@@ -231,12 +247,20 @@ const BlogPost: React.FC<any> = () => {
       </P>
       <Divider />
       <P>
-        Thanks for reading, and if you end up reading something on this list
-        please let me know!
+        Hope you enjoyed this list, and if you end up reading something please
+        let me know!
       </P>
       <P> - Jack</P>
     </article>
   );
+};
+
+export const BestOf2021: IBlogPost = {
+  slug: SLUG,
+  title: TITLE,
+  date: DATE,
+  excerpt: EXCERPT,
+  post: <BlogPost />,
 };
 
 export default BlogPost;

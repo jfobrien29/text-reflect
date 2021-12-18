@@ -1,6 +1,8 @@
 import React from 'react';
 import BaseLayout from '@/containers/BaseLayout';
 import { TWITTER_LINK } from '@/utils/constants';
+import { IBlogPost, LANDING_BLOG_POSTS } from '@/blogs/all';
+import Link from 'next/link';
 
 // const Card: React.FC<any> = ({ title, text }) => {
 //   return (
@@ -13,10 +15,14 @@ import { TWITTER_LINK } from '@/utils/constants';
 //   );
 // };
 
+const LandingBlogPost: React.FC<any> = () => {
+  return null;
+};
+
 const Landing: React.FC<any> = () => (
   <BaseLayout
     title="Jack O'Brien's personal site"
-    description="Co-Founder & CTO of OnePager, interested in programming, startups, education, biotech, and climate
+    description="Co-Founder & CTO of OnePager, interested in software, startups, education, biotech, and climate
   change solutions. At my core, I like to build things."
   >
     <div className="flex flex-col max-w-2xl px-4">
@@ -25,7 +31,7 @@ const Landing: React.FC<any> = () => (
         <a className="underline" href="https://onepager.vc">
           OnePager
         </a>
-        , interested in programming, startups, education, biotech, and climate
+        , interested in software, startups, education, biotech, and climate
         change solutions. At my core, I like to build things.
       </h1>
 
@@ -35,13 +41,31 @@ const Landing: React.FC<any> = () => (
       <h2 className="mt-8 text-lg">
         For my latest,{' '}
         <a className="underline" href={TWITTER_LINK}>
-          follow me on Twitter.
+          follow me on Twitter!
         </a>
       </h2>
 
       <h2 className="mt-8 italic text-lg">Highlighed blog posts</h2>
 
-      <h3 className="mt-4 text-lg">Coming soon...</h3>
+      {LANDING_BLOG_POSTS.map((post: IBlogPost) => {
+        return (
+          <div>
+            <div className="flex gap-2 mt-4 items-baseline" key={post.slug}>
+              <h3 className="text-lg underline">
+                {post.isExternal ? (
+                  <a href={post.link} target="_blank">
+                    {post.title}
+                  </a>
+                ) : (
+                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                )}
+              </h3>
+              <p className="text-sm italic">{post.date}</p>
+            </div>
+            <p className="elipsis-1-lines-text">{post.excerpt}</p>
+          </div>
+        );
+      })}
     </div>
   </BaseLayout>
 );

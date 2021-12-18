@@ -6,7 +6,7 @@ export const P: React.FC<any> = ({ children }) => {
 
 export const Quote: React.FC<any> = ({ children }) => {
   return (
-    <p className="mt-6 pl-3 italic border-l-2 border-gray-300">{children}</p>
+    <p className="mt-6 pl-3 italic border-l-2 border-orange">{children}</p>
   );
 };
 
@@ -31,9 +31,9 @@ export const SubTitle: React.FC<any> = ({ children }) => {
 };
 
 export const Heading4: React.FC<any> = ({ children }) => {
-  return <h4 className="mt-6 text-xl font-semibold">{children}</h4>;
+  return <h4 className="mt-6 text-lg font-semibold">{children}</h4>;
 };
 
 export const Divider: React.FC = () => {
-  return <hr className="my-8 border-px border-gray-300" />;
+  return <hr className="my-8 border-px border-orange" />;
 };
