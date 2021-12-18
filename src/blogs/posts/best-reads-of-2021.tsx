@@ -14,112 +14,159 @@ import {
 export const SLUG = 'best-reads-of-2021';
 export const TITLE = 'Best Reads of 2021';
 export const DATE = '2021-12-17';
-export const EXCERPT =
-  'Every year I make a list of the best books and articles I’ve read, and this time I’m making it public. I wholeheartedly recommend a read of everything on this list.';
+export const EXCERPT = `My top reads from 2021. I've reflected on my favorite books and articles the past several years, but this year (and in years to come) I'm making my list public. I wholeheartedly recommend a read of everything on this mentioned!`;
 
 const BlogPost: React.FC<any> = () => {
   return (
     <article>
       <P>
-        The past few years I've made a list of the best books and articles I’ve
-        read, but This this time I’m making it public. I wholeheartedly
-        recommend a read of everything on this list!
+        If you're reading this, I'm probably recommending you a book! Check out
+        my best reads of 2021 below. I've reflected on my favorite books and
+        articles the past several years, but this year (and in years to come)
+        I'm making the top of the list public. I wholeheartedly recommend a read
+        of everything mentioned here!
       </P>
-      <Heading2>Top 3 Books</Heading2>
+      <Heading2 id="books">My Top 3 Books</Heading2>
       <P>
-        Of the books I read this year, these three stuck out above the rest.
+        Of the books I read this year, these three stuck with me more than the
+        rest.
       </P>
-      <Heading3>
+      <Heading3 id="book1">
         The Code Breaker: Jennifer Doudna, Gene Editing, and the Future of the
         Human Race{' '}
       </Heading3>
       <SubTitle>by Walter Isaacson</SubTitle>
+
       <Heading4>Why this book is awesome</Heading4>
       <P>
-        This book is about CRISPR gene editing, the scientists behind the
-        discoveries, and the ethics of it all. It’s well written, story driven,
-        and hard to stop thinking about. I think it’s a must read.
+        This book is a deep dive into the nascent gene editing technique of
+        CRISPR, the scientists who uncovered the process from the natural world,
+        and the ethics of tampering with evolution. It’s extremely well written,
+        story driven, and hard to stop thinking about.
       </P>
       <P>
-        After reading this book, it feels clear to me that CRISPR gene editing
-        is going to change the world fast. Jennifer Doudna’s groundbreaking
-        paper on CRISPR was only published in 2012, and already in 2021 we’re
-        seeing multiple FDA approved therapies treating human patients (editing
-        their genes!).
+        After reading this book, its clear to me that CRISPR gene editing is
+        going to quickly change the world as we know it—this is not hyperbole.
+        Jennifer Doudna’s groundbreaking paper on CRISPR was only published in
+        2012, and already in 2021 we’re seeing multiple FDA approved therapies
+        treating human patients (editing their genes!).
       </P>
       <P>
         Worth the read for excellent background on the discovery of CRISPR, the
         competitive race to patent gene editing, the companies and therapies
         already in use today, and finally the ethics of editing a genome. CRISPR
         gene editing can be done in somatic cells (ex. eye cells, liver cells)
-        and germ line cells (ex. stem cells that will become a fetus). Therapies
-        in somatic cells have the promise of curing debilitating diseases for
-        that single person, and editing done to germ line cells will affect that
-        person and all of that persons decedents. What happens to the world when
-        artificial changes can only be bought by the rich and are inherited
-        forever? What happens when we play with the delicate balance of genetics
-        in our own bodies and the ecosystems of the earth? No one knows, but
-        we’ve turned a corner.
+        and germ line cells (ex. stem cells that will become a fetus and
+        eventually a baby). Therapies in somatic cells have the promise of
+        curing diseases for individuals receieving treatment, but editing done
+        to germ line cells (ex. pre-birth) will affect that person and all of
+        that person's decedents. What happens to the world when artificial
+        changes can only be bought by some and are inherited forever? What
+        happens when we play with the delicate balance of genetics in our own
+        bodies and the ecosystems of world? No one knows, but we’ve definitely
+        turned a corner.
       </P>
       <P>
         Walter Isaacson is an incredible author, and the book is beautifully
         written. He makes a point to stress how easy it is to use CRISPR
-        technology, and even has a chapter written about his own experience in a
-        lab editing cells. I had some FOMO after reading, so I went and got an
-        at home CRISPR kit myself and tried to edit cells in my apartment. It
-        was a big success, and cemented my beliefs in CRISPR as a groundbreaking
+        technology, and even has a chapter written about his own experience
+        editing cells in a lab. I had some FOMO after reading, so I went and got
+        an at home CRISPR kit myself and tried to edit cells in my apartment.{' '}
+        <A href="https://twitter.com/thejackobrien/status/1454879546335969283?s=20">
+          It was a big success
+        </A>
+        , and I don't think there's anything like in-Manhattan-apartment
+        biohacking to cemented my belief in CRISPR as a groundbreaking
         innovation.
       </P>
       <Heading4>How I found it</Heading4>
       <P>
         I found this book thanks to a conversation I had in 2020 with Ernie
-        Parizeau, former VC and adjunct professor of entrepreneurship, about
-        whether or not I should leave my job to start a company. From that
-        conversation Ernie suggested I read from a series of books he’d brought
-        together over the years. It’s been an awesome resource to me, see the
-        complete list here.
+        Parizeau, former VC and adjunct professor of entrepreneurship. I was
+        asking him for advice on whether I should leave Google to start a
+        company (I didn't leave for another year), and he suggested I read from
+        a series of books he’d curated on entrepreneurship, life, and venture
+        capital. It's been an awesome resource to me,{' '}
+        <A href="https://docs.google.com/document/d/1Z9hXCGS9YGyF8jkoJV2F8UJqMUvIWyRKUaYcDEZYTYs/edit">
+          and you can check out the complete list here
+        </A>
+        .
       </P>
-      <Heading3>
+
+      <P>
+        <A href="https://www.amazon.com/dp/B08MFT5J95/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1">
+          Check out The Code Breaker on Amazon
+        </A>
+      </P>
+
+      <Heading3 id="book2">
         Liftoff: Elon Musk and the Desperate Early Days That Launched SpaceX
       </Heading3>
       <SubTitle>by Eric Berger</SubTitle>
+
       <Heading4>Why this book is awesome</Heading4>
       <P>
-        SpaceX started as a chaotic startup not unlike Google or Amazon, but
-        they wanted to make something much more ambitious: orbital rockets.
-        SpaceX almost didn’t make it out of infancy, and Elon Musk almost went
-        broke. Today, they’ve revived and transformed the space industry. It’s a
-        wild story of how they made it.
+        SpaceX started as a chaotic scrappy startup just like Google or Amazon,
+        but they wanted to make something much more ambitious: reusable orbital
+        rockets. It was so ambitious they almost didn’t make it out of infancy,
+        and Musk almost went broke. Today, SpaceX has single handedly reclaimed
+        US space dominance and transformed the space industry. It’s a wild story
+        how they got there.
       </P>
       <P>
-        I’m not an Elon fan boy, but this book made me respect him. He took his
-        $200m payout from PayPal, and tried to build rocket company from
-        scratch! That amount of money was meant to fund the launch of 3 rockets,
-        one of which had to be successful (spoiler alert, there’s a ton of
-        explosions). This book follows a group of the early engineers at SpaceX
-        and their mission to get something into orbit to prove out private space
-        travel.
+        One andidote that stuck out to me: an intern litterally crawled into a
+        rocket fuselage to stop it from collapsing during air freight and saves
+        the day (and maybe the company as we know it). The reason they had the
+        rocket on air freight? They couldn't secure a launch pad in the US, so
+        they had to build one near a US military base in the middle of Pacific
+        Ocean.
       </P>
       <P>
-        They can’t secure a launch pad in the US, so they launch their first
-        rockets from a small US military launch pad in the middle of the
-        pacific. They can’t get
+        I’m not an Elon fan boy, but it's hard not to respect his ambition after
+        reading this story. He took his $200m payout from PayPal and tried to
+        build a rocket company from scratch! That amount of money was budgetted
+        to fund the launch of 3 rockets, only one of which had to be successful
+        for the company to survive (spoiler alert, there’s a ton of explosions
+        and it comes down to the wire). This book follows the early engineers at
+        SpaceX and their mission to get something into orbit and prove that
+        privatized and cheaper space travel was possible.
+      </P>
+      <P>
+        I read this book and thought "damn, I should have been a mechanical
+        engineer!" But more than that, I got lost in the excitement of space
+        travel, the work of ambitious & talented people, and the chaos of early
+        stage companies.
       </P>
       <Heading4>How I found it</Heading4>
       <P>
         I found this book the first week it came out after someone tweeted a
-        paragraph from the book. Startups + space, I was hooked. A great read as
-        I was thinking about startups.
+        paragraph. Reading about startups + space, I was hooked. Consider this a
+        positive data point on taking random advice from Twitter!
       </P>
-      <Heading3>Project Hail Mary: A Novel</Heading3>
+
+      <P>
+        <A href="https://www.amazon.com/dp/B088FQK2K2/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1">
+          Check out Lift Off on Amazon
+        </A>
+      </P>
+
+      <Heading3 id="book3">Project Hail Mary: A Novel</Heading3>
       <SubTitle>by Andy Weir</SubTitle>
+
       <Heading4>Why this book is awesome</Heading4>
       <P>
         The best fiction book I’ve read in a long time. This book finds a way to
-        make the science seem believable for some truly outrageous ideas. I
-        can’t say much about the plot without giving more away, but I think if
-        you liked reading the Martian by Andy Weir, you’ll love this book. It’s
-        the Martian, taken 5 steps further into the stars.
+        make the science fiction seem believable for some truly outrageous
+        ideas. If you liked reading The Martian by Andy Weir, you’ll love this
+        book. It’s the Martian, taken 100 steps further into deep space.
+      </P>
+      <P>
+        A few things to call out from the book. Half of the book revolves around
+        our main character, a biology professor on a solo mission in deep space.
+        The other half happens as a series of flashbacks on earth. Slowly, it's
+        revealed why a mission to deep space was necessary, how that mission
+        would be theoretically possible, and how the whole world needs to rally
+        together make it happen. It's an awesome page turner.
       </P>
       <Heading4>How I found it</Heading4>
       <P>
@@ -128,14 +175,42 @@ const BlogPost: React.FC<any> = () => {
         recently released. It’s incredible science fiction, and was hard to put
         down.
       </P>
-      <Heading2>Top 3 Articles</Heading2>
+
       <P>
-        I probably read at least 3 articles per day from sources like the The
-        Hustle, Washington Post, and my twitter feed. It’s rare I save and share
-        an article, but those I do I think are worth noting. (For the record, I
-        found all of these via Twitter)
+        <A href="https://www.amazon.com/Project-Hail-Mary-Andy-Weir-ebook/dp/B08FHBV4ZX/ref=sr_1_1?crid=2S11IXHLZ6NWT&keywords=hail+mary&qid=1639796465&s=digital-text&sprefix=hail+ma%2Cdigital-text%2C160&sr=1-1">
+          Check out Project Hail Mary on Amazon
+        </A>
       </P>
-      <Heading3>
+
+      <Heading3 id="book-honorable-mentions">Honorable Mention Books</Heading3>
+      <Heading4>Lean Startup by Eric Ries</Heading4>
+      <P>
+        Excellent framework for creative metrics driven startups. Your goal at a
+        startup is to test your business model as soon as possible: build, test,
+        analyze. Great advice on crafting metrics, how to measure success, and
+        when to pivot. Was a great read before starting a company.
+      </P>
+
+      <Heading4>Ready Player One</Heading4>
+      <P>
+        A distopian future where people escape the apocalyptic real world for
+        life inside a VR game. Quick page turner, extremely nerdy (in a good
+        way), and more relevant today with the impending ~metaverse~. Spoiler
+        alert, the moral of the story is that you have your best experiences in
+        the real world, not online.
+      </P>
+
+      <Heading2 id="articles">My Top 3 Articles</Heading2>
+      <P>
+        I probably read a minimum 2 articles per day from sources like the{' '}
+        <A href="https://thehustle.co/">The Hustle</A>,{' '}
+        <A href="https://www.washingtonpost.com/">The Washington Post</A>, and
+        my Twitter feed. It’s rare I save and share an article, but those I do I
+        think are worth noting. (For the record, I found these three articles
+        via Twitter)
+      </P>
+
+      <Heading3 id="article1">
         <A href="https://apoorvagovind.substack.com/p/how-to-waste-your-career-one-comfortable?r=9ajfy&utm_campaign=post&utm_medium=web&utm_source=twitter">
           How to waste your career, one comfortable year at a time
         </A>
@@ -147,11 +222,11 @@ const BlogPost: React.FC<any> = () => {
         “What's the most expensive mistake you've made in your career?”
       </P>
       <P>
-        The answer discussed in this article is complacency. Complacency is a
-        cancer for big aspirations and your reputation. But how do you know when
-        you’re being complacent and it’s time to make a change? Apoorva asks
-        herself 5 questions every quarter, requiring a hit rate of 3/5 to
-        continue down her current path:
+        Apoorva claims the answer is complacency. Complacency is a cancer for
+        big aspirations and your reputation. But how do you know when you’re
+        being complacent and it’s time to make a change? Apoorva asks herself 5
+        questions every quarter, requiring a hit rate of 3/5 to continue down
+        her current path:
       </P>
       <ul className="mt-6 list-disc ml-6">
         <li>
@@ -182,13 +257,14 @@ const BlogPost: React.FC<any> = () => {
       </ul>
       <P>
         I thought this framework was killer. Having felt all of these at some
-        point but rarely all five at once, it a great system to structure your
+        point but rarely all five at once, it's a great system to structure your
         life and know if it's time for change.{' '}
         <A href="https://apoorvagovind.substack.com/p/how-to-waste-your-career-one-comfortable?r=9ajfy&utm_campaign=post&utm_medium=web&utm_source=jackobrien">
-          Read the full article for more depth.
+          Read the full article here for more depth.
         </A>
       </P>
-      <Heading3>
+
+      <Heading3 id="article2">
         <A href="https://cdixon.org/2009/09/19/climbing-the-wrong-hill/">
           Climbing the wrong hill
         </A>
@@ -196,11 +272,12 @@ const BlogPost: React.FC<any> = () => {
       <SubTitle>By Chris Dixon</SubTitle>
       <P>
         Chris Dixon, entreprenuer and current a16z investor, wrote this article
-        in 2009, but I stumbled upon it in the fall of 2021. Awesome reasoning
+        in 2009, but I stumbled across it in the fall of 2021. Awesome reasoning
         why it’s best to experiment with various roles and opportunities early
         on in your career. You don’t want to commit too much time to climbing
-        the wrong hill in your life, and it's always is tempting to keep
-        trudging forward.
+        the wrong hill in your life and find the peak of that hill isn't as high
+        as you thought. It's in our nature to keep trudging forward, but picking
+        the right hill is the real challenge.
       </P>
       <P>
         It’s a short post about 6 paragraphs long,{' '}
@@ -209,7 +286,8 @@ const BlogPost: React.FC<any> = () => {
         </A>
         .
       </P>
-      <Heading3>
+
+      <Heading3 id="article3">
         <A href="https://www.quantamagazine.org/the-evolutionary-argument-against-reality-20160421/">
           The Evolutionary Argument Against Reality
         </A>
