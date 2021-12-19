@@ -31,8 +31,8 @@ export const HighlighedBlogPost: React.FC<{ post: IBlogPost }> = ({ post }) => {
 const Landing: React.FC<any> = () => (
   <BaseLayout
     title="Jack O'Brien's personal site"
-    description="Co-Founder and CTO of OnePager, interested in software, startups, education, biotech, and climate
-    change solutions. At my core, I like to build things."
+    description="Co-Founder and CTO of OnePager, interested in software, startups, education, biotech, climate
+    change solutions, and web3. At my core, I like to build things."
   >
     <div className="flex flex-col w-full align-center">
       <div className="flex flex-col justify-center max-w-3xl h-screen px-4 negative-landing-margin mx-auto">
@@ -41,8 +41,8 @@ const Landing: React.FC<any> = () => (
           <a className="underline" href="https://onepager.vc">
             OnePager
           </a>
-          , interested in software, startups, education, biotech, and climate
-          change solutions. At my core, I'm a builder.
+          , interested in software, startups, education, biotech, climate change
+          solutions, and web3. At my core, I'm a builder.
         </h1>
       </div>
 

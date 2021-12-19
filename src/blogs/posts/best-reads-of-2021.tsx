@@ -162,8 +162,8 @@ const BlogPost: React.FC<any> = () => {
         on a solo mission in deep space. The other half happens as a series of
         flashbacks on earth. Slowly, it's revealed why a mission to deep space
         was necessary, how that mission would be theoretically possible, and how
-        the entire whole world rallies together make it happen. It's an awesome
-        page turner, and I think they're making a movie out of it soon.
+        the whole world rallies together make it happen. It's an awesome page
+        turner, and I think they're making a movie out of it soon.
       </P>
       <Heading4>How I found it</Heading4>
       <P>
