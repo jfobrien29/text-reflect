@@ -10,6 +10,16 @@ const BlogListing: React.FC<any> = ({ slug }) => {
     return null;
   }
 
+  if (blog.isExternal) {
+    return (
+      <a href={blog.link} target="_blank" rel="noreferrer">
+        <h2 className="mt-8 text-2xl font-semibold">{blog.title}</h2>
+        <p className="mt-1 text-md italic">{blog.date}</p>
+        <p className="mt-2 text-md elipsis-2-lines-text">{blog.excerpt}</p>
+      </a>
+    );
+  }
+
   return (
     <Link href={`/blog/${slug}`} passHref>
       <a>
