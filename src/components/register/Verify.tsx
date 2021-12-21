@@ -4,36 +4,32 @@ import { Input, InputGroup, InputLeftAddon, Button } from '@chakra-ui/react';
 import BaseLayout from '@/containers/BaseLayout';
 import { useRouter } from 'next/router';
 
-const Landing: React.FC<any> = () => {
+const Verify: React.FC<any> = () => {
   const router = useRouter();
 
   return (
     <BaseLayout>
       <div className="flex flex-col w-full">
         <div className="flex flex-col items-center text-center max-w-3xl px-4 md:px-1 mx-auto">
-          <h1 className="text-xl leading-7 md:text-5xl font-semibold">
-            Remember every experience with your memory assistant.
-          </h1>
-
           <div className="flex flex-col max-w-lg mt-10">
             <h2 className="mt-4 text-lg md:text-xl font-semibold">
-              Get started with a phone number.
+              Enter your verification code.
             </h2>
             <form
               onSubmit={() => {
+                console.log('here');
                 router.push('/verify');
               }}
             >
               <InputGroup mt="0.5rem">
-                <InputLeftAddon children="+1" textColor="gray.800" />
                 <Input
-                  type="tel"
-                  placeholder="Phone Number (US only)"
+                  type="text"
+                  placeholder="Verification Code (6 digits)"
                   w="300px"
                 />
               </InputGroup>
               <Button type="submit" textColor="gray.800" mt="0.5rem">
-                Get Started
+                Submit
               </Button>
             </form>
           </div>
@@ -43,4 +39,4 @@ const Landing: React.FC<any> = () => {
   );
 };
 
-export default Landing;
+export default Verify;
