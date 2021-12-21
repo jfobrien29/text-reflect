@@ -1,8 +1,5 @@
 import { ReactNode } from 'react';
-import { ElevateFounderDiversity, HowToWriteSoftware } from './external';
-import { YearInReview2021 } from './posts/year-in-review-2021';
-import { BestOf2021 } from './posts/best-reads-of-2021';
-import { LeavingGoogleForOnePager } from './posts/leaving-google-for-onepager';
+import { IntroducingTextReflect } from './posts/indroducing-text-reflect';
 
 export interface IBlogPost {
   slug: string;
@@ -14,21 +11,9 @@ export interface IBlogPost {
   isExternal?: boolean;
 }
 
-export const LANDING_BLOG_POSTS: IBlogPost[] = [
-  BestOf2021,
-  HowToWriteSoftware,
-  ElevateFounderDiversity,
-];
+export const ALL_BLOG_POSTS: IBlogPost[] = [IntroducingTextReflect];
 
-export const ALL_BLOG_POSTS: IBlogPost[] = [
-  BestOf2021,
-  HowToWriteSoftware,
-  ElevateFounderDiversity,
-  LeavingGoogleForOnePager,
-  YearInReview2021,
-];
-
-export const HOSTED_BLOG_POSTS: IBlogPost[] = [BestOf2021];
+export const HOSTED_BLOG_POSTS: IBlogPost[] = [IntroducingTextReflect];
 
 export const ALL_BLOGS_MAP = new Map<string, IBlogPost>(
   ALL_BLOG_POSTS.reduce((postsMap, post) => {
