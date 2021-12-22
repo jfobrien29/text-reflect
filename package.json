@@ -36,7 +36,9 @@
     "react-hook-form": "^7.22.2",
     "react-icons": "^4.3.1",
     "react-twitter-embed": "3.0.3",
-    "tailwindcss": "^3.0.6"
+    "tailwindcss": "^3.0.6",
+    "twilio": "^3.72.0",
+    "vercel": "^23.1.2"
   },
   "devDependencies": {
     "@types/node": "14.14.43",
