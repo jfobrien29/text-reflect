@@ -8,7 +8,7 @@ const About: React.FC<any> = () => (
 
       <p className="mt-8 text-lg">
         Text Reflect was created as a useful extension of your everyday memory.
-        We'll send you a daily reminder, and you respond with your experiences
+        We'll send you a daily reminder, and you respond with you the key events
         from the day. Never forget a moment.
       </p>
 
@@ -17,8 +17,10 @@ const About: React.FC<any> = () => (
       </p>
 
       <p className="mt-8 text-lg">
-        Coming soon: sentiment analysis, key words, photo uploads, calendar
-        exports, location tagging, integration with other apps, and more.
+        Why? It's easy to forget small moments. The present usually isn't often
+        what you predicted or expected in the past, so reflecting on the past is
+        a great way to understand the present. With our automated reminders,
+        just remember to text back and you'll always remember.
       </p>
     </div>
   </BaseLayout>

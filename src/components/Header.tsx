@@ -1,24 +1,20 @@
-import { TWITTER_LINK } from '@/utils/constants';
 import Link from 'next/link';
 import React from 'react';
 
-const HeaderLink: React.FC<any> = ({ href, text, isExternal }) => {
-  if (isExternal) {
-    return (
-      <a
-        href={href}
-        className="font-semibold text-sm md:text-md"
-        target="_blank"
-        rel="noreferrer"
-      >
-        {text}
-      </a>
-    );
-  }
-
+const HeaderLink: React.FC<any> = ({ href, text }) => {
   return (
     <Link href={href} passHref>
       <a className="font-semibold text-sm md:text-md">{text}</a>
+    </Link>
+  );
+};
+
+const HeaderInternalLink: React.FC<any> = ({ href, text }) => {
+  return (
+    <Link href={href} passHref>
+      <a className="font-semibold bg-white hover:bg-slate-200 text-slate-800 text-sm md:text-md p-2 rounded-md">
+        {text}
+      </a>
     </Link>
   );
 };
@@ -31,6 +27,7 @@ const Header: React.FC = () => (
       </h2>
       <div className="flex gap-4 md:gap-8 items-center">
         <HeaderLink href="/about" text="About" />
+        <HeaderInternalLink href="/dashboard" text="Dashboard" />
       </div>
     </nav>
   </header>
