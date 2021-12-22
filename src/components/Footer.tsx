@@ -10,7 +10,7 @@ const Footer: React.FC = () => (
       </Link>
     </p>
     <h2>
-      <a href={TWITTER_LINK} target="_blank" rel="noreffer">
+      <a href={TWITTER_LINK} target="_blank" rel="noreferrer">
         Jack O'Brien 2021
       </a>
     </h2>

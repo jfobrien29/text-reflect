@@ -6,21 +6,13 @@ import {
   Button,
   FormControl,
   FormLabel,
-  FormErrorMessage,
 } from '@chakra-ui/react';
 import { useForm } from 'react-hook-form';
 
 import BaseLayout from '@/containers/BaseLayout';
-import { useRouter } from 'next/router';
 
 const Register: React.FC<any> = () => {
-  const router = useRouter();
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = handleSubmit(async (data) => {
     console.log(data);

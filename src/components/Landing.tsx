@@ -42,7 +42,7 @@ const Landing: React.FC<any> = () => {
             <form onSubmit={onSubmit}>
               <FormControl>
                 <InputGroup mt="0.5rem">
-                  <InputLeftAddon children="+1" textColor="gray.800" />
+                  <InputLeftAddon textColor="gray.800">+1</InputLeftAddon>
                   <Input
                     type="tel"
                     placeholder="Phone Number (US only)"
