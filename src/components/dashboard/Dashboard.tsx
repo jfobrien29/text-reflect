@@ -54,20 +54,20 @@ const Dashboard: React.FC<any> = () => {
                 <MessageBlock message={SAMPLE_MESSAGES[0]} />
               </div>
               <Card title="My Stats">
-                <div className="flex gap-4">
-                  <div className="w-1/3">
-                    <p className="w-full">
-                      <span>Days recorded:</span>
-                      <span>3</span>
-                    </p>
-                    <p>
-                      <span>Current streak:</span>
-                      <span>3</span>
-                    </p>
-                    <p>
-                      <span>Total responses:</span>
-                      <span>3</span>
-                    </p>
+                <div className="flex gap-2">
+                  <div className="w-2/5">
+                    <div className="flex w-full">
+                      <p className="flex-grow">Days recorded:</p>
+                      <p className="w-8">3</p>
+                    </div>
+                    <div className="flex w-full">
+                      <p className="flex-grow">Current streak:</p>
+                      <p className="w-8">3</p>
+                    </div>
+                    <div className="flex w-full">
+                      <p className="flex-grow">Total responses:</p>
+                      <p className="w-8">3</p>
+                    </div>
                   </div>
                   <div className="ml-6 flex flex-col justify-center">
                     <p>Next Milestone:</p>
@@ -86,7 +86,7 @@ const Dashboard: React.FC<any> = () => {
               <Card title="Recent History">
                 <div className="flex flex-col gap-2">
                   {SAMPLE_MESSAGES.map((message: Message) => (
-                    <MessageBlock message={message} />
+                    <MessageBlock message={message} key={message.id} />
                   ))}
                 </div>
                 <div className="w-full flex justify-center">
