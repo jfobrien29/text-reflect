@@ -38,7 +38,9 @@ const Dashboard: React.FC<any> = () => {
     <BaseLayout>
       <div className="flex flex-col w-full">
         <div className="flex flex-col text-center max-w-4xl px-4 md:px-0 mx-auto w-full items-center">
-          <h1 className="text-xl md:text-3xl font-semibold">My Dashboard</h1>
+          <h1 className="text-xl md:text-3xl font-semibold">
+            Memories Dashboard
+          </h1>
           <hr className="mt-4 border-px border-slate-100 w-full" />
 
           <div className="mt-12 text-left flex flex-col items-center w-full">
