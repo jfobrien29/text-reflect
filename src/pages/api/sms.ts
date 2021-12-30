@@ -34,11 +34,13 @@ export default async (request: any, response: any) => {
     .get();
 
   if (userData.empty) {
+    console.info(`User for this number not found.`);
     sendTextResponse(response, GENERIC_RESPONSE_MESSAGE);
     return;
   }
+  const user = userData.docs[0];
 
-  const user = userData.docs[0].data();
+  console.info(`Message is from ${user.data().name}.`);
 
   await USERS_REF.doc(user.id).collection(USER_ENTRIES_COLLECTION).add({
     method: 'text',
