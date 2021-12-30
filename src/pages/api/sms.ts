@@ -40,7 +40,9 @@ export default async (request: any, response: any) => {
   }
   const user = userData.docs[0];
 
-  console.info(`Message is from ${user.data().name}.`);
+  console.info(
+    `Message is from existing user ${user.data().name} - ${user.id}.`,
+  );
 
   await USERS_REF.doc(user.id).collection(USER_ENTRIES_COLLECTION).add({
     method: 'text',
@@ -51,6 +53,8 @@ export default async (request: any, response: any) => {
 
   sendTextResponse(
     response,
-    `Recorded your entry for today, ${currentDate}-${currentMonth}-${currentYear}`,
+    `Nice! Recorded your entry for today, ${currentMonth + 1}/${
+      currentDate + 1
+    }.`,
   );
 };
