@@ -1,6 +1,22 @@
-import { getRelevantDates } from '@/utils/helpers';
-
 import * as twilioLib from 'twilio';
+
+import { getRelevantDates } from '@/utils/helpers';
+import { firebaseAdmin } from '@/utils/firebaseAdmin';
+import { USERS_COLLECTION, USER_ENTRIES_COLLECTION } from '@/utils/constants';
+
+const USERS_REF = firebaseAdmin.firestore().collection(USERS_COLLECTION);
+
+const GENERIC_RESPONSE_MESSAGE =
+  'Hey, this is Text Reflect! 📱🔮 \n' +
+  "We're not ready yet, but checkout https://jackobrien.xyz for updates!";
+
+const sendTextResponse = (response: any, message: string) => {
+  const twiml = new twilioLib.twiml.MessagingResponse();
+  twiml.message(message);
+
+  response.writeHead(200, { 'Content-Type': 'text/xml' });
+  response.end(twiml.toString());
+};
 
 export default async (request: any, response: any) => {
   const from = request.body.From;
@@ -13,13 +29,26 @@ export default async (request: any, response: any) => {
     `Message ${message} from ${from}, ${currentYear}-${currentMonth}-${currentDate}`,
   );
 
-  // New user, send them a link to the website
-  const twiml = new twilioLib.twiml.MessagingResponse();
-  twiml.message(
-    'Hey, this is Text Reflect! 📱🔮 \n' +
-      "We're not ready yet, but checkout https://jackobrien.xyz for updates!",
-  );
+  const userData = await USERS_REF.where('phoneNumber', '==', from)
+    .limit(1)
+    .get();
 
-  response.writeHead(200, { 'Content-Type': 'text/xml' });
-  response.end(twiml.toString());
+  if (userData.empty) {
+    sendTextResponse(response, GENERIC_RESPONSE_MESSAGE);
+    return;
+  }
+
+  const user = userData.docs[0].data();
+
+  await USERS_REF.doc(user.id).collection(USER_ENTRIES_COLLECTION).add({
+    method: 'text',
+    time: firebaseAdmin.firestore.Timestamp.now(),
+    timestamp: new Date().getTime(),
+    value: message,
+  });
+
+  sendTextResponse(
+    response,
+    `Recorded your entry for today, ${currentDate}-${currentMonth}-${currentYear}`,
+  );
 };

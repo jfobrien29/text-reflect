@@ -13,3 +13,7 @@ export const ROUTES = {
 
   BLOG_POST: '/blog/[slug]',
 };
+
+// Firebase Collection Names
+export const USERS_COLLECTION = 'users';
+export const USER_ENTRIES_COLLECTION = 'entries';
