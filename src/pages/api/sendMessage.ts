@@ -29,13 +29,13 @@ export default async (request: any, response: any) => {
   const { sendToAll, number } = request.body;
 
   const messageBody =
-    'Welcome to Text Reflect 📱🔮 !' +
+    'Welcome to Text Reflect Beta 📱🔮 !' +
     '\n\n' +
     "You'll get daily reminders from me to write about your day." +
     '\n\n' +
-    'Never forget a memory! Record it, reflect, and extend your useful memory!' +
+    'Never forget an experience! Record it, reflect, and extend your useful memory!' +
     '\n\n' +
-    'Respond to this text for your first entry (1/1). Write as much or as little feels relevant about your day. Visualization and review of past messages coming soon...' +
+    'Respond to this text for your first entry (Jan 1). Write as much or as little feels relevant about your day. Visualization and review of past messages coming soon...' +
     '\n\n' +
     'Add me to your contacts now for a great 2021! 🕺🚀';
 

@@ -12,7 +12,7 @@ const USERS_REF = firebaseAdmin.firestore().collection(USERS_COLLECTION);
 
 const GENERIC_RESPONSE_MESSAGE =
   'Hey, this is Text Reflect! 📱🔮 \n' +
-  "We're not ready yet, but checkout https://jackobrien.xyz for updates!";
+  "We're not ready for general use yet, but checkout https://jackobrien.xyz for updates!";
 
 const sendTextResponse = (response: any, message: string) => {
   const twiml = new twilioLib.twiml.MessagingResponse();
