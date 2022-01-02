@@ -55,22 +55,23 @@ export default async (request: any, response: any) => {
     console.log('Get all users and send');
     const users = await getAllUsers();
 
+    // eslint-disable-next-line no-restricted-syntax
     for (const user of users) {
       if (user.phoneNumber) {
         // sendMessage(messageBody, user.phoneNumber);
-        console.log(`sent message to ${user.name} at ${user.phoneNumber}`);
-        count++;
+        console.log(`Sent message to ${user.name} at ${user.phoneNumber}`);
+        count += 1;
       }
     }
   } else {
-    if (!!number) {
+    if (number) {
       sendMessage(messageBody, number);
       console.log(`Sending to ${number}`);
     } else {
       sendMessage(messageBody, '+17037406546');
       console.log(`Sending to Jack`);
     }
-    count++;
+    count += 1;
   }
 
   response.writeHead(200, { 'Content-Type': 'text/xml' });
