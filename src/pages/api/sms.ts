@@ -2,7 +2,11 @@ import * as twilioLib from 'twilio';
 
 import { getRelevantDates } from '@/utils/helpers';
 import { firebaseAdmin } from '@/utils/firebaseAdmin';
-import { USERS_COLLECTION, USER_ENTRIES_COLLECTION } from '@/utils/constants';
+import {
+  MONTHS_FULL_NAME,
+  USERS_COLLECTION,
+  USER_ENTRIES_COLLECTION,
+} from '@/utils/constants';
 
 const USERS_REF = firebaseAdmin.firestore().collection(USERS_COLLECTION);
 
@@ -53,8 +57,6 @@ export default async (request: any, response: any) => {
 
   sendTextResponse(
     response,
-    `Nice! Recorded your entry for today, ${currentMonth + 1}/${
-      currentDate + 1
-    }.`,
+    `Nice! Recorded your entry for today, ${MONTHS_FULL_NAME[currentMonth]} ${currentDate}.`,
   );
 };

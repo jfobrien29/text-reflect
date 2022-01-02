@@ -17,3 +17,18 @@ export const ROUTES = {
 // Firebase Collection Names
 export const USERS_COLLECTION = 'users';
 export const USER_ENTRIES_COLLECTION = 'entries';
+
+export const MONTHS_FULL_NAME = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
