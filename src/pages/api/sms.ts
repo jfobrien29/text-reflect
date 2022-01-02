@@ -57,6 +57,7 @@ export default async (request: any, response: any) => {
   );
 
   // Handle the specific triggers (START, STOP, TRIGGER)
+
   if (message === STOP_TEXT) {
     await USERS_REF.doc(user.id).update({
       sendReminders: false,
@@ -68,7 +69,9 @@ export default async (request: any, response: any) => {
       }. You'll stop getting texts from us unless you send back START.`,
     );
     return;
-  } else if (message === START_TEXT) {
+  }
+
+  if (message === START_TEXT) {
     await USERS_REF.doc(user.id).update({
       sendReminders: true,
     });
@@ -77,7 +80,9 @@ export default async (request: any, response: any) => {
       `Thanks, ${user.data().name}! We'll start sending you messages again.`,
     );
     return;
-  } else if (message === TRIGGER_TEXT) {
+  }
+
+  if (message === TRIGGER_TEXT) {
     console.log('TRIGGER!!');
     sendMessage(TRIGGER_MESSAGE, '+17037406546');
 
