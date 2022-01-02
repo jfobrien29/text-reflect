@@ -22,6 +22,12 @@ const TRIGGER_TEXT = 'TRIGGER';
 const STOP_TEXT = 'STOP';
 const START_TEXT = 'START';
 
+const getAllUsers = async (): Promise<any[]> => {
+  const users = await USERS_REF.get();
+
+  return users.docs.map((doc) => doc.data() as any);
+};
+
 const sendTextResponse = (response: any, message: string) => {
   const twiml = new twilioLib.twiml.MessagingResponse();
   twiml.message(message);
@@ -86,10 +92,21 @@ export default async (request: any, response: any) => {
 
   if (message === TRIGGER_TEXT && from === '+17037406546') {
     console.log('TRIGGER!!');
-    await sendMessage(TRIGGER_MESSAGE, '+17037406546');
+    let count = 0;
+    const users = await getAllUsers();
 
-    sendTextResponse(response, 'Trigger sent, thanks Jack.');
-    console.log('Sent your message!!');
+    // eslint-disable-next-line no-restricted-syntax
+    for (const user of users) {
+      if (user.phoneNumber) {
+        await sendMessage(TRIGGER_MESSAGE, user.phoneNumber);
+        console.log(`Sent message to ${user.name} at ${user.phoneNumber}`);
+        count += 1;
+      }
+    }
+    sendTextResponse(
+      response,
+      `Trigger sent to ${count} numbers, thanks Jack.`,
+    );
     return;
   }
 
