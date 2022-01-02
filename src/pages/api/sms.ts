@@ -16,7 +16,7 @@ const GENERIC_RESPONSE_MESSAGE =
   "We're not ready for general use yet, but checkout https://jackobrien.xyz for updates!";
 
 const TRIGGER_MESSAGE =
-  'Hey! Time to reflect on your day, reply with what happened! (Reply STOP to end these).';
+  'Heyo, time to reflect on your day. Reply with what happened! (Reply STOP to end these)';
 
 const TRIGGER_TEXT = 'TRIGGER';
 const STOP_TEXT = 'STOP';
