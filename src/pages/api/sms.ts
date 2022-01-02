@@ -4,12 +4,26 @@ import { getRelevantDates } from '@/utils/helpers';
 import { firebaseAdmin } from '@/utils/firebaseAdmin';
 import {
   MONTHS_FULL_NAME,
+  TEXT_REFLECT_PHONE_NUMBER,
   USERS_COLLECTION,
   USER_ENTRIES_COLLECTION,
 } from '@/utils/constants';
-import { sendMessage } from './sendMessage';
 
 const USERS_REF = firebaseAdmin.firestore().collection(USERS_COLLECTION);
+
+const TWILIO_ACCOUNT_ID = process.env.TWILIO_ACCOUNT_ID || '';
+const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN || '';
+const client = new twilioLib.Twilio(TWILIO_ACCOUNT_ID, TWILIO_AUTH_TOKEN);
+
+export const sendMessage = (body: string, number: string): void => {
+  client.messages
+    .create({
+      body,
+      to: number,
+      from: TEXT_REFLECT_PHONE_NUMBER,
+    })
+    .then((message) => console.info(message.sid));
+};
 
 const GENERIC_RESPONSE_MESSAGE =
   'Hey, this is Text Reflect! 📱🔮 \n' +
@@ -38,7 +52,9 @@ export default async (request: any, response: any) => {
   );
 
   console.info(
-    `Message ${message} from ${from}, ${currentYear}-${currentMonth}-${currentDate}`,
+    `Message ${message} from ${from}, ${currentYear}-${
+      currentMonth + 1
+    }-${currentDate}`,
   );
 
   const userData = await USERS_REF.where('phoneNumber', '==', from)
@@ -87,6 +103,7 @@ export default async (request: any, response: any) => {
     sendMessage(TRIGGER_MESSAGE, '+17037406546');
 
     sendTextResponse(response, 'Trigger sent, thanks Jack.');
+    console.log('Sent your message!!');
     return;
   }
 
