@@ -22,7 +22,8 @@ export const sendMessage = (body: string, number: string): void => {
       to: number,
       from: TEXT_REFLECT_PHONE_NUMBER,
     })
-    .then((message) => console.info(message.sid));
+    .then((message) => console.info(message.sid))
+    .catch((error) => console.error(error));
 };
 
 const GENERIC_RESPONSE_MESSAGE =
