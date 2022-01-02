@@ -7,12 +7,20 @@ import {
   USERS_COLLECTION,
   USER_ENTRIES_COLLECTION,
 } from '@/utils/constants';
+import { sendMessage } from './sendMessage';
 
 const USERS_REF = firebaseAdmin.firestore().collection(USERS_COLLECTION);
 
 const GENERIC_RESPONSE_MESSAGE =
   'Hey, this is Text Reflect! 📱🔮 \n' +
   "We're not ready for general use yet, but checkout https://jackobrien.xyz for updates!";
+
+const TRIGGER_MESSAGE =
+  'Hey! Time to reflect on your day, reply with what happened! (Reply STOP to end these).';
+
+const TRIGGER_TEXT = 'TRIGGER';
+const STOP_TEXT = 'STOP';
+const START_TEXT = 'START';
 
 const sendTextResponse = (response: any, message: string) => {
   const twiml = new twilioLib.twiml.MessagingResponse();
@@ -47,6 +55,35 @@ export default async (request: any, response: any) => {
   console.info(
     `Message is from existing user ${user.data().name} - ${user.id}.`,
   );
+
+  // Handle the specific triggers (START, STOP, TRIGGER)
+  if (message === STOP_TEXT) {
+    await USERS_REF.doc(user.id).update({
+      sendReminders: false,
+    });
+    sendTextResponse(
+      response,
+      `Thanks, ${
+        user.data().name
+      }. You'll stop getting texts from us unless you send back START.`,
+    );
+    return;
+  } else if (message === START_TEXT) {
+    await USERS_REF.doc(user.id).update({
+      sendReminders: true,
+    });
+    sendTextResponse(
+      response,
+      `Thanks, ${user.data().name}! We'll start sending you messages again.`,
+    );
+    return;
+  } else if (message === TRIGGER_TEXT) {
+    console.log('TRIGGER!!');
+    sendMessage(TRIGGER_MESSAGE, '+17037406546');
+
+    sendTextResponse(response, 'Trigger sent, thanks Jack.');
+    return;
+  }
 
   await USERS_REF.doc(user.id).collection(USER_ENTRIES_COLLECTION).add({
     method: 'text',

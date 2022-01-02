@@ -1,5 +1,6 @@
 import * as twilioLib from 'twilio';
 import { firebaseAdmin } from '@/utils/firebaseAdmin';
+import { TEXT_REFLECT_PHONE_NUMBER } from '@/utils/constants';
 
 const USERS_REF = firebaseAdmin.firestore().collection('users');
 
@@ -9,18 +10,20 @@ const client = new twilioLib.Twilio(TWILIO_ACCOUNT_ID, TWILIO_AUTH_TOKEN);
 
 // const CHALLENGER_VCARD_URL = 'https://www.vcard.link/card/DDzO.vcf';
 
+// const MESSAGE =
+
 const getAllUsers = async (): Promise<any[]> => {
   const users = await USERS_REF.get();
 
   return users.docs.map((doc) => doc.data() as any);
 };
 
-const sendMessage = (body: string, number: string): void => {
+export const sendMessage = (body: string, number: string): void => {
   client.messages
     .create({
       body,
       to: number,
-      from: '+12029494098',
+      from: TEXT_REFLECT_PHONE_NUMBER,
     })
     .then((message) => console.info(message.sid));
 };
@@ -58,7 +61,7 @@ export default async (request: any, response: any) => {
     // eslint-disable-next-line no-restricted-syntax
     for (const user of users) {
       if (user.phoneNumber) {
-        // sendMessage(messageBody, user.phoneNumber);
+        sendMessage(messageBody, user.phoneNumber);
         console.log(`Sent message to ${user.name} at ${user.phoneNumber}`);
         count += 1;
       }

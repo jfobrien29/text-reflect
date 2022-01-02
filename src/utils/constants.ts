@@ -1,3 +1,6 @@
+// Text reflect Twilio #
+export const TEXT_REFLECT_PHONE_NUMBER = '+12029494098';
+
 // My Personal Links
 export const TWITTER_LINK = 'https://twitter.com/thejackobrien';
 export const GITHUB_LINK = 'https://github.com/jfobrien29';
