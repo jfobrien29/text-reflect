@@ -57,6 +57,8 @@ export default async (request: any, response: any) => {
 
   sendTextResponse(
     response,
-    `Nice! Recorded your entry for today, ${MONTHS_FULL_NAME[currentMonth]} ${currentDate}.`,
+    `Nice, ${user.data().name}! Recorded your entry for today, ${
+      MONTHS_FULL_NAME[currentMonth]
+    } ${currentDate}.`,
   );
 };
