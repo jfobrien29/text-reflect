@@ -86,7 +86,7 @@ export default async (request: any, response: any) => {
 
   if (message === TRIGGER_TEXT && from === '+17037406546') {
     console.log('TRIGGER!!');
-    sendMessage(TRIGGER_MESSAGE, '+17037406546');
+    await sendMessage(TRIGGER_MESSAGE, '+17037406546');
 
     sendTextResponse(response, 'Trigger sent, thanks Jack.');
     console.log('Sent your message!!');
