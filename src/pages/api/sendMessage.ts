@@ -18,7 +18,7 @@ const getAllUsers = async (): Promise<any[]> => {
   return users.docs.map((doc) => doc.data() as any);
 };
 
-export const sendMessage = (body: string, number: string): void => {
+const sendMessage = (body: string, number: string): void => {
   client.messages
     .create({
       body,
