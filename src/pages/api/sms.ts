@@ -19,7 +19,7 @@ const TRIGGER_MESSAGE =
   'Heyo, time to reflect on your day. Reply with what happened! (Reply STOP to end these)';
 
 const TRIGGER_TEXT = 'TRIGGER';
-const STOP_TEXT = 'STOP';
+const STOP_TEXT = 'OFF';
 const START_TEXT = 'START';
 
 const getAllUsers = async (): Promise<any[]> => {
@@ -95,14 +95,22 @@ export default async (request: any, response: any) => {
     let count = 0;
     const users = await getAllUsers();
 
-    // eslint-disable-next-line no-restricted-syntax
-    for (const user of users) {
-      if (user.phoneNumber) {
-        await sendMessage(TRIGGER_MESSAGE, user.phoneNumber);
-        console.log(`Sent message to ${user.name} at ${user.phoneNumber}`);
+    const sendMessagePromises = users.map(
+      async (thisUser: any): Promise<void> => {
+        if (!thisUser.sendReminders) {
+          return Promise.resolve();
+        }
+
+        console.log(
+          `Sent message to ${thisUser.name} at ${thisUser.phoneNumber}`,
+        );
         count += 1;
-      }
-    }
+        return sendMessage(TRIGGER_MESSAGE, thisUser.phoneNumber);
+      },
+    );
+
+    await Promise.all(sendMessagePromises);
+
     sendTextResponse(
       response,
       `Trigger sent to ${count} numbers, thanks Jack.`,
