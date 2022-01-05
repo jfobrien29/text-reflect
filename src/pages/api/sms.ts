@@ -51,17 +51,21 @@ export default async (request: any, response: any) => {
     `Message is from existing user ${user.data().name} - ${user.id}.`,
   );
 
+  // Handle triggers
+
   if (TEXT_TRIGGERS.includes(message.trim().toUpperCase())) {
-    const replyMessage = await handleTriggerText(response, user, from);
+    const replyMessage = await handleTriggerText(
+      message.trim().toUpperCase(),
+      user,
+      from,
+    );
     sendTextResponse(response, replyMessage);
     return;
   }
 
-  // We're saving the user message!
+  // Not a Trigger, we're saving the user message!
 
-  // const lastMessageDate = 1/2/2022
-  // const currentStreak = 3
-
+  // TODO:
   // if current date is the last date, do nothing here
   // if the current date is 1 day apart from the last date, increment the current streak
   // if the current date is more than 1 day apart from the last date, reset the current streak to 1
@@ -73,7 +77,7 @@ export default async (request: any, response: any) => {
     value: message,
   });
 
-  // if user has already sent a message today, don't send another
+  // TODO: if user has already sent a message today, don't send another one
 
   if (user.data().sendCompletionResponse) {
     sendTextResponse(

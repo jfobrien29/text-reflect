@@ -1,4 +1,4 @@
-import { USERS_COLLECTION } from '@/utils/constants';
+import { IDEAS_COLLECTION, USERS_COLLECTION } from '@/utils/constants';
 import { firebaseAdmin } from '@/utils/firebaseAdmin';
 import { sendMessage } from '@/utils/messaging';
 
@@ -6,8 +6,10 @@ const TRIGGER_MESSAGE =
   'Heyo, time to reflect on your day. Reply with what happened! (Reply STOP to end these)';
 
 const TRIGGER_TEXT = 'TRIGGER';
+
 const STOP_TEXT = 'OFF';
 const START_TEXT = 'START';
+
 const YES_REPLY_TEXT = 'YESREPLY';
 const NO_REPLY_TEXT = 'NOREPLY';
 
@@ -20,6 +22,7 @@ export const TEXT_TRIGGERS = [
 ];
 
 const USERS_REF = firebaseAdmin.firestore().collection(USERS_COLLECTION);
+const IDEAS_REF = firebaseAdmin.firestore().collection(IDEAS_COLLECTION);
 
 const getAllUsers = async (): Promise<any[]> => {
   const users = await USERS_REF.get();
@@ -32,7 +35,7 @@ export const handleTriggerText = async (
   user: any,
   from: string,
 ): Promise<string> => {
-  if (message.trim() === STOP_TEXT) {
+  if (message === STOP_TEXT) {
     await USERS_REF.doc(user.id).update({
       sendReminders: false,
     });
@@ -41,7 +44,7 @@ export const handleTriggerText = async (
     }. You'll stop getting texts from us unless you send back START.`;
   }
 
-  if (message.trim() === START_TEXT) {
+  if (message === START_TEXT) {
     await USERS_REF.doc(user.id).update({
       sendReminders: true,
     });
@@ -51,7 +54,7 @@ export const handleTriggerText = async (
     }! We'll start sending you messages again.`;
   }
 
-  if (message.trim() === NO_REPLY_TEXT) {
+  if (message === NO_REPLY_TEXT) {
     await USERS_REF.doc(user.id).update({
       sendCompletionResponse: false,
     });
@@ -60,7 +63,7 @@ export const handleTriggerText = async (
     }. You'll stop getting replies after you send in your messages unless you text back YESREPLY.`;
   }
 
-  if (message.trim() === YES_REPLY_TEXT) {
+  if (message === YES_REPLY_TEXT) {
     await USERS_REF.doc(user.id).update({
       sendCompletionResponse: true,
     });
@@ -69,10 +72,7 @@ export const handleTriggerText = async (
     }! We'll start sending you reply messages again.`;
   }
 
-  if (
-    message.trim() === TRIGGER_TEXT &&
-    from === process.env.JACK_PHONE_NUMBER
-  ) {
+  if (message === TRIGGER_TEXT && from === process.env.JACK_PHONE_NUMBER) {
     let count = 0;
     const users = await getAllUsers();
 
