@@ -66,7 +66,7 @@ export default async (request: any, response: any) => {
 
   // Handle the specific triggers (START, STOP, TRIGGER)
 
-  if (message === STOP_TEXT) {
+  if (message.trim() === STOP_TEXT) {
     await USERS_REF.doc(user.id).update({
       sendReminders: false,
     });
@@ -79,7 +79,7 @@ export default async (request: any, response: any) => {
     return;
   }
 
-  if (message === START_TEXT) {
+  if (message.trim() === START_TEXT) {
     await USERS_REF.doc(user.id).update({
       sendReminders: true,
     });
@@ -90,7 +90,10 @@ export default async (request: any, response: any) => {
     return;
   }
 
-  if (message === TRIGGER_TEXT && from === '+17037406546') {
+  if (
+    message.trim() === TRIGGER_TEXT &&
+    from === process.env.JACK_PHONE_NUMBER
+  ) {
     console.log('TRIGGER!!');
     let count = 0;
     const users = await getAllUsers();
@@ -118,12 +121,23 @@ export default async (request: any, response: any) => {
     return;
   }
 
+  // We're saving the user message!
+
+  // const lastMessageDate = 1/2/2022
+  // const currentStreak = 3
+
+  // if current date is the last date, do nothing here
+  // if the current date is 1 day apart from the last date, increment the current streak
+  // if the current date is more than 1 day apart from the last date, reset the current streak to 1
+
   await USERS_REF.doc(user.id).collection(USER_ENTRIES_COLLECTION).add({
     method: 'text',
     time: firebaseAdmin.firestore.Timestamp.now(),
     timestamp: new Date().getTime(),
     value: message,
   });
+
+  // if user has already sent a message today, don't send another
 
   sendTextResponse(
     response,

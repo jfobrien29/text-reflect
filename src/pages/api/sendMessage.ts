@@ -32,7 +32,7 @@ export default async (request: any, response: any) => {
   const { sendToAll, number } = request.body;
 
   const messageBody =
-    'Heyo, time to reflect on your day. Reply with what happened! (Reply OFF to end these reminders)';
+    'Heyo, time to reflect on your day 🔮. Reply with what happened! (OFF to end these texts).';
 
   //   const messageBody =
   //     'Welcome to Text Reflect Beta 📱🔮 !' +
@@ -74,7 +74,7 @@ export default async (request: any, response: any) => {
       sendMessage(messageBody, number);
       console.log(`Sending to ${number}`);
     } else {
-      sendMessage(messageBody, '+17037406546');
+      sendMessage(messageBody, process.env.JACK_PHONE_NUMBER || '');
       console.log(`Sending to Jack`);
     }
     count += 1;
