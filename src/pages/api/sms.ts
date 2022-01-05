@@ -21,6 +21,8 @@ const TRIGGER_MESSAGE =
 const TRIGGER_TEXT = 'TRIGGER';
 const STOP_TEXT = 'OFF';
 const START_TEXT = 'START';
+const YES_REPLY_TEXT = 'YESREPLY';
+const NO_REPLY_TEXT = 'NOREPLY';
 
 const getAllUsers = async (): Promise<any[]> => {
   const users = await USERS_REF.get();
@@ -112,6 +114,32 @@ export default async (request: any, response: any) => {
       },
     );
 
+    if (message.trim() === NO_REPLY_TEXT) {
+      await USERS_REF.doc(user.id).update({
+        sendCompletionResponse: false,
+      });
+      sendTextResponse(
+        response,
+        `Thanks, ${
+          user.data().name
+        }. You'll stop getting replies after you send in your messages unless you text back YESREPLY.`,
+      );
+      return;
+    }
+
+    if (message.trim() === YES_REPLY_TEXT) {
+      await USERS_REF.doc(user.id).update({
+        sendCompletionResponse: true,
+      });
+      sendTextResponse(
+        response,
+        `Thanks, ${
+          user.data().name
+        }! We'll start sending you reply messages again.`,
+      );
+      return;
+    }
+
     await Promise.all(sendMessagePromises);
 
     sendTextResponse(
@@ -139,10 +167,12 @@ export default async (request: any, response: any) => {
 
   // if user has already sent a message today, don't send another
 
-  sendTextResponse(
-    response,
-    `Nice, ${user.data().name}! Recorded your entry for today, ${
-      MONTHS_FULL_NAME[currentMonth]
-    } ${currentDate}.`,
-  );
+  if (user.data().sendCompletionResponse) {
+    sendTextResponse(
+      response,
+      `Nice, ${user.data().name}! Recorded your entry for today, ${
+        MONTHS_FULL_NAME[currentMonth]
+      } ${currentDate}.`,
+    );
+  }
 };
