@@ -1,25 +1,75 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
+import * as twilioLib from 'twilio';
+import { FUNCTION_TEXT_REFLECT_PHONE_NUMBER } from './constants';
 
 admin.initializeApp(functions.config().firebase);
 
-// const USERS_REF = admin.firestore().collection('users');
+const USERS_REF = admin.firestore().collection('users');
 
 // Start writing Firebase Functions
 // https://firebase.google.com/docs/functions/typescript
+
+// Take the text parameter passed to this HTTP endpoint and insert it into
+// Firestore under the path /messages/:documentId/original
+exports.addMessage = functions.https.onRequest(async (req, res) => {
+  // Send back a message that we've successfully written the message
+  res.json({ result: `Hello World` });
+  functions.logger.info(`Sample trigger worked!`);
+});
 
 export const newUserCreated = functions.firestore
   .document('users/{userId}')
   .onCreate(async (snap, context) => {
     const userId = context.params.userId;
 
-    functions.logger.info(`Unknown user created: ${userId}`);
+    functions.logger.info(`New user created: ${userId}`);
+
+    USERS_REF.doc(userId)
+      .update({
+        unknownUser: true,
+      })
+      .then((result) => {
+        return null;
+      })
+      .catch((e) => {
+        console.warn(e);
+        return null;
+      });
   });
 
-// Runs every day at 12:01 am PST
-export const markMissedTasks = functions.pubsub
-  .schedule('2 0-6 * * *')
+const getAllUsersForReminder = async (): Promise<any[]> => {
+  const usersQuery = await USERS_REF.where('sendReminders', '==', true).get();
+
+  return usersQuery.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+};
+
+// Runs every day at 8:03 pm EST
+export const sendReminders = functions.pubsub
+  .schedule('3 20 * * *')
   .timeZone('America/New_York')
   .onRun(async (context) => {
-    functions.logger.info(`Updated challenge days as being missed in tz .`);
+    functions.logger.info(`Running at 8:03 pm EST`);
+    let remindersSent = 0;
+
+    const client = new twilioLib.Twilio(
+      functions.config().twilio.accountid,
+      functions.config().twilio.authtoken,
+    );
+
+    const users = await getAllUsersForReminder();
+
+    for (const user of users) {
+      functions.logger.info(`Sending message to ${user.name}.`);
+      client.messages
+        .create({
+          body: `Hey ${user.name}, it\'s time to reflect on your day 🔮. Reply with what happened!`,
+          to: user.phoneNumber,
+          from: FUNCTION_TEXT_REFLECT_PHONE_NUMBER, // From a valid Twilio number, for now all the same
+        })
+        .then((message) => console.info(message.sid));
+      remindersSent++;
+    }
+
+    functions.logger.info(`Send ${remindersSent} reminders to reflectors.`);
   });
