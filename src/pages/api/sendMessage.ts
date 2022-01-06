@@ -32,7 +32,7 @@ export default async (request: any, response: any) => {
   const { sendToAll, number } = request.body;
 
   const messageBody =
-    'Heyo, time to reflect on your day 🔮. Reply with what happened! (OFF to end these texts).';
+    'Hey hey heyo! Time to reflect on your day 🔮. Reply with what happened!';
 
   //   const messageBody =
   //     'Welcome to Text Reflect Beta 📱🔮 !' +
@@ -63,7 +63,7 @@ export default async (request: any, response: any) => {
 
     // eslint-disable-next-line no-restricted-syntax
     for (const user of users) {
-      if (user.phoneNumber) {
+      if (user.phoneNumber && user.sendReminders) {
         sendMessage(messageBody, user.phoneNumber);
         console.log(`Sent message to ${user.name} at ${user.phoneNumber}`);
         count += 1;

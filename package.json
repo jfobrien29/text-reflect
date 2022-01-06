@@ -16,7 +16,8 @@
     "start": "next start",
     "type-check": "tsc",
     "lint": "eslint --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\"",
-    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write"
+    "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
+    "deploy-functions": "cd functions/ && yarn build && cd .. && firebase deploy --only functions"
   },
   "lint-staged": {
     "./src/**/*.{ts,js,jsx,tsx}": [
@@ -29,10 +30,11 @@
     "@emotion/styled": "^11",
     "autoprefixer": "^10.4.0",
     "firebase-admin": "^10.0.1",
+    "firebase-functions": "^3.16.0",
     "framer-motion": "^4",
     "next": "^12.0.7",
     "postcss": "^8.4.5",
-    "react": "17.0.2",
+    "react": "^17.0.2",
     "react-dom": "17.0.2",
     "react-hook-form": "^7.22.2",
     "react-icons": "^4.3.1",
@@ -43,8 +45,8 @@
   },
   "devDependencies": {
     "@types/node": "14.14.43",
-    "@types/react": "17.0.4",
-    "@types/react-dom": "17.0.3",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
     "@typescript-eslint/eslint-plugin": "4.22.0",
     "@typescript-eslint/parser": "4.22.0",
     "cz-conventional-changelog": "3.3.0",
