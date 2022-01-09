@@ -1,11 +1,6 @@
-import { NowRequest, NowResponse } from '@vercel/node';
 import * as twilioLib from 'twilio';
 
-// const TWILIO_ACCOUNT_ID = process.env.TWILIO_ACCOUNT_ID;
-// const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN;
-// const client = new twilioLib.Twilio(TWILIO_ACCOUNT_ID, TWILIO_AUTH_TOKEN);
-
-export default async (request: NowRequest, response: NowResponse) => {
+export default async (request: any, response: any) => {
   const voiceResponse = new twilioLib.twiml.VoiceResponse();
 
   voiceResponse.say(
