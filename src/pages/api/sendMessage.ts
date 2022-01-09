@@ -1,6 +1,9 @@
 import * as twilioLib from 'twilio';
 import { firebaseAdmin } from '@/utils/firebaseAdmin';
-import { TEXT_REFLECT_PHONE_NUMBER } from '@/utils/constants';
+import {
+  REFLECT_VCARD_URL,
+  TEXT_REFLECT_PHONE_NUMBER,
+} from '@/utils/constants';
 
 const USERS_REF = firebaseAdmin.firestore().collection('users');
 
@@ -8,22 +11,19 @@ const TWILIO_ACCOUNT_ID = process.env.TWILIO_ACCOUNT_ID || '';
 const TWILIO_AUTH_TOKEN = process.env.TWILIO_AUTH_TOKEN || '';
 const client = new twilioLib.Twilio(TWILIO_ACCOUNT_ID, TWILIO_AUTH_TOKEN);
 
-// const CHALLENGER_VCARD_URL = 'https://www.vcard.link/card/DDzO.vcf';
-
-// const MESSAGE =
-
 const getAllUsers = async (): Promise<any[]> => {
   const users = await USERS_REF.get();
 
   return users.docs.map((doc) => doc.data() as any);
 };
 
-const sendMessage = (body: string, number: string): void => {
+const sendMessage = (body: string, number: string, mediaUrl?: string): void => {
   client.messages
     .create({
       body,
       to: number,
       from: TEXT_REFLECT_PHONE_NUMBER,
+      mediaUrl,
     })
     .then((message) => console.info(message.sid));
 };
@@ -31,19 +31,19 @@ const sendMessage = (body: string, number: string): void => {
 export default async (request: any, response: any) => {
   const { sendToAll, number } = request.body;
 
-  const messageBody =
-    'Hey hey heyo! Time to reflect on your day 🔮. Reply with what happened!';
+  // const messageBody =
+  //   'Hey hey heyo! Time to reflect on your day 🔮. Reply with what happened!';
 
-  //   const messageBody =
-  //     'Welcome to Text Reflect Beta 📱🔮 !' +
-  //     '\n\n' +
-  //     "You'll get daily reminders from me to write about your day." +
-  //     '\n\n' +
-  //     'Never forget an experience! Record it, reflect, and extend your useful memory!' +
-  //     '\n\n' +
-  //     'Respond to this text for your first entry (Jan 1). Write as much or as little feels relevant about your day. Visualization and review of past messages coming soon...' +
-  //     '\n\n' +
-  //     'Add me to your contacts now for a great 2021! 🕺🚀';
+  const messageBody =
+    'Welcome to Text Reflect Beta 📱🔮 !' +
+    '\n\n' +
+    "You'll get daily reminders from this number to write about your day." +
+    '\n\n' +
+    'Never forget an experience! Record it, reflect, and extend your memory!' +
+    '\n\n' +
+    'Respond to this text for your first entry. Write as much or as little feels relevant about your day. Visualization and review of past messages coming soon...' +
+    '\n\n' +
+    'Add me to your contacts now for a great 2021! 🕺🚀';
 
   //   const messageBody =
   //     '🚨🗓️ End of April Alert 🗓️🚨' +
@@ -74,7 +74,11 @@ export default async (request: any, response: any) => {
       sendMessage(messageBody, number);
       console.log(`Sending to ${number}`);
     } else {
-      sendMessage(messageBody, process.env.JACK_PHONE_NUMBER || '');
+      sendMessage(
+        messageBody,
+        process.env.JACK_PHONE_NUMBER || '',
+        REFLECT_VCARD_URL,
+      );
       console.log(`Sending to Jack`);
     }
     count += 1;

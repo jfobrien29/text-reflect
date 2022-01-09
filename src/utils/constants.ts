@@ -1,6 +1,10 @@
 // Text reflect Twilio #
 export const TEXT_REFLECT_PHONE_NUMBER = '+12029494098';
 
+export const APP_URL = 'https://text-reflect.vercel.app/';
+
+export const REFLECT_VCARD_URL = `https://www.vcard.link/Text_Reflect.vcf`;
+
 // My Personal Links
 export const TWITTER_LINK = 'https://twitter.com/thejackobrien';
 export const GITHUB_LINK = 'https://github.com/jfobrien29';
