@@ -1,7 +1,8 @@
+import { FEEDBACK_COLLECTION } from '@/utils/constants';
 import { firebaseAdmin } from '@/utils/firebaseAdmin';
 import * as twilioLib from 'twilio';
 
-const FEEDBACK_REF = firebaseAdmin.firestore().collection('feedback');
+const FEEDBACK_REF = firebaseAdmin.firestore().collection(FEEDBACK_COLLECTION);
 
 export default async (request: any, response: any) => {
   const { RecordingUrl, From } = request.body;

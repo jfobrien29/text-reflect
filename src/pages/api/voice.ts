@@ -1,3 +1,4 @@
+import { VERCEL_APP_URL } from '@/utils/constants';
 import * as twilioLib from 'twilio';
 
 export default async (request: any, response: any) => {
@@ -18,7 +19,7 @@ export default async (request: any, response: any) => {
     'After the beep, you will have 30 seconds to provide feedback. Press 1 to finish your recording.',
   );
   voiceResponse.record({
-    action: 'https://calendarchallenger.com/api/voicerecord',
+    action: `${VERCEL_APP_URL}/api/voicerecord`,
     timeout: 5,
     maxLength: 30,
     transcribe: false,
