@@ -24,7 +24,8 @@ export const ROUTES = {
 // Firebase Collection Names
 export const USERS_COLLECTION = 'users';
 export const USER_ENTRIES_COLLECTION = 'entries';
-export const IDEAS_COLLECTION = 'entries';
+export const IDEAS_COLLECTION = 'ideas';
+export const FEEDBACK_COLLECTION = 'feedback';
 
 export const MONTHS_FULL_NAME = [
   'January',
