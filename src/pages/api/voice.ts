@@ -4,22 +4,23 @@ import * as twilioLib from 'twilio';
 export default async (request: any, response: any) => {
   const voiceResponse = new twilioLib.twiml.VoiceResponse();
 
-  voiceResponse.say('Hey-yo! You have reached the Text Reflector!');
-  voiceResponse.pause();
+  //   voiceResponse.say('Hey-yo! You have reached the Text Reflector!');
+  //   voiceResponse.pause();
 
-  voiceResponse.say(
-    'For information on how to use Text Reflector, text this number the word HELP. "H" "E" "L" "P".',
-  );
-  voiceResponse.pause();
+  //   voiceResponse.say(
+  //     'For information on how to use Text Reflector, text this number the word HELP. "H" "E" "L" "P".',
+  //   );
+  //   voiceResponse.pause();
 
-  voiceResponse.say('Stay on the line now to provide feedback.');
-  voiceResponse.pause();
+  //   voiceResponse.say('Stay on the line now to provide feedback.');
+  //   voiceResponse.pause();
 
-  voiceResponse.say(
-    'After the beep, you will have 30 seconds to provide feedback. Press 1 to finish your recording.',
-  );
+  //   voiceResponse.say(
+  //     'After the beep, you will have 30 seconds to provide feedback. Press 1 to finish your recording.',
+  //   );
+  voiceResponse.say('Feedback');
   voiceResponse.record({
-    action: `${VERCEL_APP_URL}/api/voicerecord`,
+    action: `${VERCEL_APP_URL}/api/voiceRecord`,
     timeout: 5,
     maxLength: 30,
     transcribe: false,
