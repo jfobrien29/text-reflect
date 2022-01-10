@@ -9,7 +9,7 @@ import {
 } from '@/utils/constants';
 import { TEXT_TRIGGERS, handleTriggerText } from '@/api/textTriggers';
 import { IUser } from '@/interfaces/user';
-import { handleIdeaText, IDEA_TEXT } from '@/api/ideas';
+import { handleIdeaText } from '@/api/ideas';
 
 const USERS_REF = firebaseAdmin.firestore().collection(USERS_COLLECTION);
 
