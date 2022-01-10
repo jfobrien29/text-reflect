@@ -1,12 +1,7 @@
-import * as functions from 'firebase-functions';
-import * as admin from 'firebase-admin';
-
 import { DAYS_TO_MARK_INACTIVE } from './constants';
+import { USERS_REF } from './firebaseAdmin';
 import { ICloudFunctionUser } from './interfaces';
 import { dateStringDaysApart, formatDate, getRelevantDates } from './utils';
-
-admin.initializeApp(functions.config().firebase);
-const USERS_REF = admin.firestore().collection('users');
 
 const markUserInactive = async (id: string): Promise<any> => {
   await USERS_REF.doc(id).update({ active: false });

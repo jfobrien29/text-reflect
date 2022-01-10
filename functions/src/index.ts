@@ -1,12 +1,8 @@
 import * as functions from 'firebase-functions';
-import * as admin from 'firebase-admin';
 import * as twilioLib from 'twilio';
 import { FUNCTION_TEXT_REFLECT_PHONE_NUMBER } from './constants';
+import { USERS_REF } from './firebaseAdmin';
 import { generateMessageForUser } from './messageUtils';
-
-admin.initializeApp(functions.config().firebase);
-
-const USERS_REF = admin.firestore().collection('users');
 
 // Start writing Firebase Functions
 // https://firebase.google.com/docs/functions/typescript
