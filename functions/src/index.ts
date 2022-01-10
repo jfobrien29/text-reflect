@@ -2,6 +2,7 @@ import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import * as twilioLib from 'twilio';
 import { FUNCTION_TEXT_REFLECT_PHONE_NUMBER } from './constants';
+import { generateMessageForUser } from './messageUtils';
 
 admin.initializeApp(functions.config().firebase);
 
@@ -61,9 +62,10 @@ export const sendReminders = functions.pubsub
 
     for (const user of users) {
       functions.logger.info(`Sending message to ${user.name}.`);
+      const message = generateMessageForUser(user);
       client.messages
         .create({
-          body: `Hey ${user.name}, it\'s time to reflect on your day 🔮. Reply with what happened!`,
+          body: message,
           to: user.phoneNumber,
           from: FUNCTION_TEXT_REFLECT_PHONE_NUMBER, // From a valid Twilio number, for now all the same
         })
