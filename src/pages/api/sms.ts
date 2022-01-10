@@ -31,7 +31,7 @@ const sendCompletionResponse = (response: any) => {
   response.end(twiml.toString());
 };
 
-const getUserByPhoneNumber = async (
+export const getUserByPhoneNumber = async (
   phoneNumber: string,
 ): Promise<IUser | null> => {
   const userData = await USERS_REF.where('phoneNumber', '==', phoneNumber)

@@ -1,14 +1,19 @@
 import { VERCEL_APP_URL } from '@/utils/constants';
 import * as twilioLib from 'twilio';
+import { getUserByPhoneNumber } from './sms';
 
 export default async (request: any, response: any) => {
   const voiceResponse = new twilioLib.twiml.VoiceResponse();
 
-  voiceResponse.say('Hey-yo! You have reached the Text Reflector!');
+  const user = await getUserByPhoneNumber(request.body.From);
+
+  voiceResponse.say(
+    `Hey ${user?.name || ''}! You have reached the Text Reflector!`,
+  );
   voiceResponse.pause();
 
   voiceResponse.say(
-    'For information on how to use Text Reflector, text this number the word HELP. "H" "E" "L" "P".',
+    'For information on how to use Text Reflector, text this number the word INFO. "I" "N" "F" "O".',
   );
   voiceResponse.pause();
 

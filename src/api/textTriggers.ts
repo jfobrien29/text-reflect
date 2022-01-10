@@ -14,7 +14,7 @@ const START_TEXT = 'START';
 const YES_REPLY_TEXT = 'YESREPLY';
 const NO_REPLY_TEXT = 'NOREPLY';
 
-const HELP_TEXT = 'HELP';
+const INFO_TEXT = 'INFO';
 
 export const TEXT_TRIGGERS = [
   TRIGGER_TEXT,
@@ -22,7 +22,7 @@ export const TEXT_TRIGGERS = [
   START_TEXT,
   YES_REPLY_TEXT,
   NO_REPLY_TEXT,
-  HELP_TEXT,
+  INFO_TEXT,
 ];
 
 const USERS_REF = firebaseAdmin.firestore().collection(USERS_COLLECTION);
@@ -98,7 +98,7 @@ export const handleTriggerText = async (
     return `Trigger sent to ${count} numbers, thanks Jack.`;
   }
 
-  if (message === HELP_TEXT) {
+  if (message === INFO_TEXT) {
     return (
       'Welcome to Text Reflect Beta 📱🔮 !' +
       '\n\n' +
