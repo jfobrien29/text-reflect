@@ -34,6 +34,23 @@ const pickGreeting = (day: number): string => {
   return WEEK_GREETINGS[Math.floor(Math.random() * WEEK_GREETINGS.length)];
 };
 
+const fire = (streak: number): string => {
+  if (streak > 0) {
+    return '🔥';
+  }
+  if (streak > 4) {
+    return '🔥🔥';
+  }
+  if (streak > 10) {
+    return '🔥🔥🔥';
+  }
+  if (streak > 30) {
+    return '🔥🔥🔥🔥';
+  }
+
+  return '';
+};
+
 export const generateMessageForUser = async (
   user: ICloudFunctionUser,
 ): Promise<string> => {
@@ -46,7 +63,9 @@ export const generateMessageForUser = async (
 
   // if streak exists and last message was yesterday (aka it's alive)
   if (user.currentStreak > 0 && user.lastMessage === yesterday.string) {
-    return `${base} Keep your ${user.currentStreak} day streak going! 🔥`;
+    return `${base} Keep your ${user.currentStreak} day streak going! ${fire(
+      user.currentStreak,
+    )}`;
   }
 
   // if today and user.lastMessage are 5 days apart, mark inactive and tell user
