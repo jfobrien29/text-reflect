@@ -6,14 +6,16 @@ export enum DayStatus {
   FUTURE = 'Future', // If this day is in the future
 }
 
-export interface RelevantMonths {
-  currentDate: number;
-  currentMonth: number;
-  currentYear: number;
-  nextMonth: number;
-  nextMonthYear: number;
-  lastMonth: number;
-  lastMonthYear: number;
+export interface Dates {
+  date: number;
+  month: number;
+  year: number;
+  string: string;
+}
+
+export interface RelevantDates {
+  today: Dates;
+  yesterday: Dates;
 }
 
 function changeTimezone(date: any, ianatz: string) {
@@ -32,29 +34,35 @@ function changeTimezone(date: any, ianatz: string) {
   return new Date(date.getTime() - diff); // needs to substract
 }
 
-export const getRelevantDates = (timeZone?: string): RelevantMonths => {
+const makeDateString = (date: number, month: number, year: number) =>
+  `${year}-${month + 1}-${date}`;
+
+export const getRelevantDates = (timeZone?: string): RelevantDates => {
   let now;
   now = new Date();
   if (timeZone) {
     now = changeTimezone(now, timeZone);
   }
 
-  const currentDate = now.getDate();
-  const currentMonth = now.getMonth();
-  const currentYear = now.getFullYear();
-  const nextMonth = (currentMonth + 1) % 12;
-  const nextMonthYear = nextMonth === 0 ? currentYear + 1 : currentYear;
-  const lastMonth = (currentMonth - 1) % 12;
-  const lastMonthYear = currentMonth === 0 ? currentYear - 1 : currentYear;
+  const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000);
 
   return {
-    currentDate,
-    currentMonth,
-    currentYear,
-    nextMonth,
-    nextMonthYear,
-    lastMonth,
-    lastMonthYear,
+    today: {
+      date: now.getDate(),
+      month: now.getMonth(),
+      year: now.getFullYear(),
+      string: makeDateString(now.getDate(), now.getMonth(), now.getFullYear()),
+    },
+    yesterday: {
+      date: yesterday.getDate(),
+      month: yesterday.getMonth(),
+      year: yesterday.getFullYear(),
+      string: makeDateString(
+        yesterday.getDate(),
+        yesterday.getMonth(),
+        yesterday.getFullYear(),
+      ),
+    },
   };
 };
 

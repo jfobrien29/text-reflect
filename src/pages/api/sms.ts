@@ -8,6 +8,8 @@ import {
   USER_ENTRIES_COLLECTION,
 } from '@/utils/constants';
 import { TEXT_TRIGGERS, handleTriggerText } from '@/api/textTriggers';
+import { user } from 'firebase-functions/v1/auth';
+import { IUser } from '@/interfaces/user';
 
 const USERS_REF = firebaseAdmin.firestore().collection(USERS_COLLECTION);
 
@@ -26,15 +28,9 @@ const sendTextResponse = (response: any, message: string) => {
 export default async (request: any, response: any) => {
   const from = request.body.From;
   const message = request.body.Body;
-  const { currentYear, currentMonth, currentDate } = getRelevantDates(
-    'America/Los_Angeles',
-  );
+  const { today, yesterday } = getRelevantDates('America/Los_Angeles');
 
-  console.info(
-    `Message ${message} from ${from}, ${currentYear}-${
-      currentMonth + 1
-    }-${currentDate}`,
-  );
+  console.info(`Message ${message} from ${from}, ${today.string}`);
 
   const userData = await USERS_REF.where('phoneNumber', '==', from)
     .limit(1)
@@ -45,11 +41,12 @@ export default async (request: any, response: any) => {
     sendTextResponse(response, GENERIC_RESPONSE_MESSAGE);
     return;
   }
-  const user = userData.docs[0];
+  const user: IUser = {
+    id: userData.docs[0].id,
+    ...(userData.docs[0].data() as any),
+  };
 
-  console.info(
-    `Message is from existing user ${user.data().name} - ${user.id}.`,
-  );
+  console.info(`Message is from existing user ${user.name} - ${user.id}.`);
 
   // Handle triggers
 
@@ -77,14 +74,35 @@ export default async (request: any, response: any) => {
     value: message,
   });
 
-  // TODO: if user has already sent a message today, don't send another one
+  let streak = 1;
 
-  if (user.data().sendCompletionResponse) {
+  // streak is dead because last message is more than a day away (not yesterday or today)
+  if (
+    user.lastMessage !== yesterday.string &&
+    user.lastMessage !== today.string
+  ) {
+    await USERS_REF.doc(user.id).update({
+      currentStreak: 1,
+      lastMessage: today.string,
+    });
+  }
+
+  // streak is alive!
+  if (user.lastMessage === yesterday.string) {
+    streak = user.currentStreak + 1;
+    await USERS_REF.doc(user.id).update({
+      currentStreak: streak,
+      longestStreak: Math.max(streak, user.longestStreak),
+      lastMessage: today.string,
+    });
+  }
+
+  if (user.sendCompletionResponse && user.lastMessage !== today.string) {
     sendTextResponse(
       response,
-      `Nice, ${user.data().name}! Recorded your entry for today, ${
-        MONTHS_FULL_NAME[currentMonth]
-      } ${currentDate}.`,
+      `Nice, ${user.name}! Recorded your entry for today, ${
+        MONTHS_FULL_NAME[today.month]
+      } ${today.date}.`,
     );
   }
 };

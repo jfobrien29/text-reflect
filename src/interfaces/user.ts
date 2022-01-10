@@ -1,11 +1,12 @@
 // User Interface
 export interface IUser {
+  id: string;
   currentStreak: number;
   lastMessage?: string;
   longestStreak: number;
   name: string;
   phoneNumber: string;
-  sendCompleteResponse: boolean;
+  sendCompletionResponse: boolean;
   sendReminders: boolean;
   timeZone: string;
 }
