@@ -24,6 +24,12 @@ const sendTextResponse = (response: any, message: string) => {
   response.end(twiml.toString());
 };
 
+const sendCompletionResponse = (response: any) => {
+  const twiml = new twilioLib.twiml.MessagingResponse();
+  response.writeHead(200, { 'Content-Type': 'text/xml' });
+  response.end(twiml.toString());
+};
+
 const getUserByPhoneNumber = async (
   phoneNumber: string,
 ): Promise<IUser | null> => {
@@ -82,6 +88,12 @@ export default async (request: any, response: any) => {
     value: message,
   });
 
+  if (!user.active) {
+    await USERS_REF.doc(user.id).update({
+      active: true,
+    });
+  }
+
   let streak = 1;
 
   // streak is dead because last message is more than a day away (not yesterday or today)
@@ -92,6 +104,7 @@ export default async (request: any, response: any) => {
     await USERS_REF.doc(user.id).update({
       currentStreak: 1,
       lastMessage: today.string,
+      active: true,
     });
   }
 
@@ -112,5 +125,7 @@ export default async (request: any, response: any) => {
         MONTHS_FULL_NAME[today.month]
       } ${today.date}.`,
     );
+  } else {
+    sendCompletionResponse(response);
   }
 };

@@ -3,7 +3,7 @@ import * as admin from 'firebase-admin';
 // Separate Interfaces for the cloud functions. Keep these in sync with src/interfaces/*
 
 export interface ICloudFunctionEntry {
-  id?: string;
+  id: string;
   value: string;
   method: string;
 
@@ -17,7 +17,7 @@ export interface ICloudFunctionEntry {
 
 // User Interface
 export interface ICloudFunctionUser {
-  id?: string;
+  id: string;
   currentStreak: number;
   lastMessage?: string;
   longestStreak: number;
@@ -26,4 +26,7 @@ export interface ICloudFunctionUser {
   sendCompleteResponse: boolean;
   sendReminders: boolean;
   timeZone: string;
+  active: boolean;
+
+  createdAt: admin.firestore.Timestamp;
 }

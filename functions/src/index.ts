@@ -39,8 +39,11 @@ export const newUserCreated = functions.firestore
       });
   });
 
+// Get active users with reminders enabled
 const getAllUsersForReminder = async (): Promise<any[]> => {
-  const usersQuery = await USERS_REF.where('sendReminders', '==', true).get();
+  const usersQuery = await USERS_REF.where('sendReminders', '==', true)
+    .where('active', '==', true)
+    .get();
 
   return usersQuery.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 };
@@ -62,7 +65,7 @@ export const sendReminders = functions.pubsub
 
     for (const user of users) {
       functions.logger.info(`Sending message to ${user.name}.`);
-      const message = generateMessageForUser(user);
+      const message = await generateMessageForUser(user);
       client.messages
         .create({
           body: message,

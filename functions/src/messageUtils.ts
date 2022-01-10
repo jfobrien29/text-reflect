@@ -1,17 +1,39 @@
-import { ICloudFunctionUser } from './interfaces';
-import { getRelevantDates } from './utils';
+import * as functions from 'firebase-functions';
+import * as admin from 'firebase-admin';
 
-export const generateMessageForUser = (user: ICloudFunctionUser): string => {
-  const { currentDate, currentMonth, currentYear } = getRelevantDates();
-  const structuredDate = `${currentYear}-${currentMonth + 1}-${currentDate}`;
-  console.log(`Generating message for ${user.name} on ${structuredDate}`);
+import { DAYS_TO_MARK_INACTIVE } from './constants';
+import { ICloudFunctionUser } from './interfaces';
+import { dateStringDaysApart, formatDate, getRelevantDates } from './utils';
+
+admin.initializeApp(functions.config().firebase);
+const USERS_REF = admin.firestore().collection('users');
+
+const markUserInactive = async (id: string): Promise<any> => {
+  await USERS_REF.doc(id).update({ active: false });
+};
+
+const BASIC_FOLLOW_UP = 'Reply with what happened!';
+
+export const generateMessageForUser = async (
+  user: ICloudFunctionUser,
+): Promise<string> => {
+  const { today, yesterday } = getRelevantDates(user.timeZone);
+  console.log(`Generating message for ${user.name} on ${today.string}`);
 
   const base = `Hey ${user.name}, it\'s time to reflect on your day 🔮.`;
-  const basic = 'Reply with what happened!';
 
-  if (user.currentStreak > 0) {
+  // if streak exists and last message was yesterday (aka it's alive)
+  if (user.currentStreak > 0 && user.lastMessage === yesterday.string) {
     return `${base} Keep your ${user.currentStreak} day streak going! 🔥`;
   }
 
-  return `${base} ${basic}`;
+  // if today and user.lastMessage are 5 days apart, mark inactive and tell user
+  const firstDate = user.lastMessage || formatDate(user.createdAt.toDate());
+  const daysApart = dateStringDaysApart(firstDate, today.string);
+  if (daysApart >= DAYS_TO_MARK_INACTIVE) {
+    await markUserInactive(user.id);
+    return `${base} (You've missed ${daysApart} days in a row. If you don't reply today, we'll stop sending you messages until you text again).`;
+  }
+
+  return `${base} ${BASIC_FOLLOW_UP}`;
 };

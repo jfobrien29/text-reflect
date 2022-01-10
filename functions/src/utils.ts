@@ -1,3 +1,16 @@
+export interface Dates {
+  day: number;
+  date: number;
+  month: number;
+  year: number;
+  string: string;
+}
+
+export interface RelevantDates {
+  today: Dates;
+  yesterday: Dates;
+}
+
 function changeTimezone(date: any, ianatz: string) {
   // suppose the date is 12:00 UTC
   var invdate = new Date(
@@ -14,28 +27,56 @@ function changeTimezone(date: any, ianatz: string) {
   return new Date(date.getTime() - diff); // needs to substract
 }
 
-export const getRelevantDates = (timeZone?: string) => {
+const makeDateString = (date: number, month: number, year: number) =>
+  `${year}-${month + 1}-${date}`;
+
+export const formatDate = (date: Date) => {
+  return makeDateString(date.getDate(), date.getMonth(), date.getFullYear());
+};
+
+export const getRelevantDates = (timeZone?: string): RelevantDates => {
   let now;
   now = new Date();
   if (timeZone) {
     now = changeTimezone(now, timeZone);
   }
 
-  const currentDate = now.getDate();
-  const currentMonth = now.getMonth();
-  const currentYear = now.getFullYear();
-  const nextMonth = (currentMonth + 1) % 12;
-  const nextMonthYear = nextMonth === 0 ? currentYear + 1 : currentYear;
-  const lastMonth = (currentMonth - 1) % 12;
-  const lastMonthYear = currentMonth === 0 ? currentYear - 1 : currentYear;
+  const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000);
 
   return {
-    currentDate,
-    currentMonth,
-    currentYear,
-    nextMonth,
-    nextMonthYear,
-    lastMonth,
-    lastMonthYear,
+    today: {
+      day: now.getDay(),
+      date: now.getDate(),
+      month: now.getMonth(),
+      year: now.getFullYear(),
+      string: makeDateString(now.getDate(), now.getMonth(), now.getFullYear()),
+    },
+    yesterday: {
+      day: yesterday.getDay(),
+      date: yesterday.getDate(),
+      month: yesterday.getMonth(),
+      year: yesterday.getFullYear(),
+      string: makeDateString(
+        yesterday.getDate(),
+        yesterday.getMonth(),
+        yesterday.getFullYear(),
+      ),
+    },
   };
+};
+
+export const dateStringToDate = (dateString: string) => {
+  const [year, month, day] = dateString.split('-');
+  return new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+};
+
+export const dateStringDaysApart = (
+  dateString1: string,
+  dateString2: string,
+) => {
+  const date1 = dateStringToDate(dateString1);
+  const date2 = dateStringToDate(dateString2);
+  return Math.round(
+    Math.abs(date1.getTime() - date2.getTime()) / (1000 * 60 * 60 * 24),
+  );
 };
