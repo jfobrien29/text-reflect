@@ -8,7 +8,6 @@ import {
   USER_ENTRIES_COLLECTION,
 } from '@/utils/constants';
 import { TEXT_TRIGGERS, handleTriggerText } from '@/api/textTriggers';
-import { user } from 'firebase-functions/v1/auth';
 import { IUser } from '@/interfaces/user';
 
 const USERS_REF = firebaseAdmin.firestore().collection(USERS_COLLECTION);
@@ -25,28 +24,36 @@ const sendTextResponse = (response: any, message: string) => {
   response.end(twiml.toString());
 };
 
+const getUserByPhoneNumber = async (
+  phoneNumber: string,
+): Promise<IUser | null> => {
+  const userData = await USERS_REF.where('phoneNumber', '==', phoneNumber)
+    .limit(1)
+    .get();
+
+  if (userData.empty) {
+    return null;
+  }
+  return {
+    id: userData.docs[0].id,
+    ...(userData.docs[0].data() as any),
+  } as IUser;
+};
+
 export default async (request: any, response: any) => {
   const from = request.body.From;
   const message = request.body.Body;
   const { today, yesterday } = getRelevantDates('America/Los_Angeles');
 
-  console.info(`Message ${message} from ${from}, ${today.string}`);
+  const user = await getUserByPhoneNumber(from);
 
-  const userData = await USERS_REF.where('phoneNumber', '==', from)
-    .limit(1)
-    .get();
-
-  if (userData.empty) {
-    console.info(`User for this number not found.`);
+  if (!user) {
+    console.info(`User not found for number ${from}.`);
     sendTextResponse(response, GENERIC_RESPONSE_MESSAGE);
     return;
   }
-  const user: IUser = {
-    id: userData.docs[0].id,
-    ...(userData.docs[0].data() as any),
-  };
 
-  console.info(`Message is from existing user ${user.name} - ${user.id}.`);
+  console.info(`Message from ${from} is from user ${user.name} - ${user.id}.`);
 
   // Handle triggers
 
