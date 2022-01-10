@@ -14,7 +14,7 @@ const START_TEXT = 'START';
 const YES_REPLY_TEXT = 'YESREPLY';
 const NO_REPLY_TEXT = 'NOREPLY';
 
-const INFO_TEXT = 'INFO';
+const INFO_TEXT = '?';
 
 export const TEXT_TRIGGERS = [
   TRIGGER_TEXT,

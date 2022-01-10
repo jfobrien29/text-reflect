@@ -7,7 +7,8 @@
 
 ## User Interface
 
-- ...
+- Blog post on locking the conversation into the header
+- Blog post on how best to use and get started
 
 ## DONE
 
