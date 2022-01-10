@@ -76,6 +76,7 @@ export default async (request: any, response: any) => {
 
   await USERS_REF.doc(user.id).collection(USER_ENTRIES_COLLECTION).add({
     method: 'text',
+    date_for: today.string,
     time: firebaseAdmin.firestore.Timestamp.now(),
     timestamp: new Date().getTime(),
     value: message,
