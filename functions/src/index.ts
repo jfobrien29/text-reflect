@@ -4,17 +4,6 @@ import { FUNCTION_TEXT_REFLECT_PHONE_NUMBER } from './constants';
 import { USERS_REF } from './firebaseAdmin';
 import { generateMessageForUser } from './messageUtils';
 
-// Start writing Firebase Functions
-// https://firebase.google.com/docs/functions/typescript
-
-// Take the text parameter passed to this HTTP endpoint and insert it into
-// Firestore under the path /messages/:documentId/original
-exports.addMessage = functions.https.onRequest(async (req, res) => {
-  // Send back a message that we've successfully written the message
-  res.json({ result: `Hello World` });
-  functions.logger.info(`Sample trigger worked!`);
-});
-
 export const newUserCreated = functions.firestore
   .document('users/{userId}')
   .onCreate(async (snap, context) => {
