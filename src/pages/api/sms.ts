@@ -9,6 +9,7 @@ import {
 } from '@/utils/constants';
 import { TEXT_TRIGGERS, handleTriggerText } from '@/api/textTriggers';
 import { IUser } from '@/interfaces/user';
+import { handleIdeaText, IDEA_TEXT } from '@/api/ideas';
 
 const USERS_REF = firebaseAdmin.firestore().collection(USERS_COLLECTION);
 
@@ -70,6 +71,12 @@ export default async (request: any, response: any) => {
       from,
     );
     sendTextResponse(response, replyMessage);
+    return;
+  }
+
+  if (message.trim().substring(0, 4).toUpperCase() === 'IDEA') {
+    await handleIdeaText(message, user);
+    sendTextResponse(response, 'Thanks for your idea!');
     return;
   }
 

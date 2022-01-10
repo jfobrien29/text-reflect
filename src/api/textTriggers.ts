@@ -1,4 +1,5 @@
-import { IDEAS_COLLECTION, USERS_COLLECTION } from '@/utils/constants';
+import { IUser } from '@/interfaces/user';
+import { USERS_COLLECTION } from '@/utils/constants';
 import { firebaseAdmin } from '@/utils/firebaseAdmin';
 import { sendMessage } from '@/utils/messaging';
 
@@ -25,12 +26,11 @@ export const TEXT_TRIGGERS = [
 ];
 
 const USERS_REF = firebaseAdmin.firestore().collection(USERS_COLLECTION);
-const IDEAS_REF = firebaseAdmin.firestore().collection(IDEAS_COLLECTION);
 
-const getAllUsers = async (): Promise<any[]> => {
+const getAllUsers = async (): Promise<IUser[]> => {
   const users = await USERS_REF.get();
 
-  return users.docs.map((doc) => doc.data() as any);
+  return users.docs.map((doc) => ({ id: doc.id, ...doc.data() } as IUser));
 };
 
 export const handleTriggerText = async (
