@@ -14,13 +14,35 @@ const markUserInactive = async (id: string): Promise<any> => {
 
 const BASIC_FOLLOW_UP = 'Reply with what happened!';
 
+const WEEK_GREETINGS = [
+  'Heyo',
+  'Good day',
+  '🤠 Howdy',
+  'YO',
+  "What's cookin",
+  "I hope you're doing well",
+  'Good day',
+];
+
+const SUNDAY_GREETING = 'Hope you had a great weekend';
+
+const pickGreeting = (day: number): string => {
+  if (day === 0) {
+    return SUNDAY_GREETING;
+  }
+
+  return WEEK_GREETINGS[Math.floor(Math.random() * WEEK_GREETINGS.length)];
+};
+
 export const generateMessageForUser = async (
   user: ICloudFunctionUser,
 ): Promise<string> => {
   const { today, yesterday } = getRelevantDates(user.timeZone);
   console.log(`Generating message for ${user.name} on ${today.string}`);
 
-  const base = `Hey ${user.name}, it\'s time to reflect on your day 🔮.`;
+  const base = `${pickGreeting(today.day)} ${
+    user.name
+  }, it\'s time to reflect on your day 🔮.`;
 
   // if streak exists and last message was yesterday (aka it's alive)
   if (user.currentStreak > 0 && user.lastMessage === yesterday.string) {
